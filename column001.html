@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metaphor Auto Generator Feb 2021</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #999999;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      color: #777777;
+    }
+
+    .description {
+      text-align: center;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .verse {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  </style>
+
+</head>
+<body>
+
+<h1> 은 유 기 계 실 험 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<br> <br> <br>
+
+<div class="description">
+    윤동주가 쓰던 시어 127개로 시구를 만들어 봅니다.
+</div>
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "icon7.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button>
+</small>
+</div>
+
+<br> <br> <br>
+
+<div class = "verse" id="delay2">
+  <h2>
+  &ldquo; &nbsp; <span id = "target"> </span> &nbsp; &rdquo;
+  </h2>
+</div>
+
+</div>
+
+
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+      var uniVal = bar.charCodeAt(bar.length -1);
+
+      if ((uniVal -16) % 28) {
+        return "은"
+      }
+      else {
+        return "는"
+      }
+    } 
+
+
+///////
+
+var images = ['icon1.png', 'icon2.png', 'icon3.png', 'icon4.png',
+'icon5.png', 'icon6.png', 'icon7.png']
+
+var poeticWords = ['나', '너', '귀뚜라미', '코스모스', '집', '하늘', 
+'밤', '눈', '사람', '마음', '거리', '얼굴', '바람', '소리', '아침', 
+'별', '가을', '생각', '사랑', '불', '어둠', '달', '봄', '아이', 
+'이야기', '방', '바다', '노래', '나무', '손', '그림자', '길', 
+'눈물', '집', '돌', '기차', '끝', '언덕', '저녁', '어머니', '머리', 
+'물결', '시간', '겨울', '코', '조개', '포기', '숲', '햇님', '햇빛', 
+'황혼', '단풍', '강물', '편지', '꽃', '비', '고향', '닭', '꽃밭', 
+'구름', '잎', '마을', '지붕', '나비', '발', '전차', '성벽', 
+'해바라기', '시계', '전등', '새벽', '글씨', '울음', '뼈', '젊은이', 
+'남대문', '간판', '산', '세계', '창', '논', '여름', '공부', '안개', 
+'인생', '바구니', '혼자', '꿈', '땅', '춤', '터널', '지도', '자국', 
+'처음', '감자', '시대', '우주', '계절', '달걀', '연기', '굴뚝', '종이', 
+'죽음', '물', '물감', '처마', '병아리', '달빛', '돌담', '걱정', 
+'비둘기', '공기', '민들레', '살구나무', '십자가', '흙', '손가락', 
+'뒷골목', '진달래', '문살', '바닷가', '바위', '슬픔', '번개', '잔디밭', 
+'나뭇가지', '노트'];
+
+
+var autoVerse = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateVerse(baz) {
+    
+  var baz1 = choice(baz);
+  var baz2 = postposition(baz1) +" ";
+  var baz3 = choice(baz);
+  var baz4 = "의 "+ choice(baz);
+
+  return baz1 + baz2 + baz3 + baz4;
+}
+
+function verseWrite(foobar) {
+  autoVerse.innerHTML = generateVerse(foobar);
+
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+  verseWrite(poeticWords);
+  imageChange(images);
+  
+//  btn.addEventListener("click", verseWrite());
+
+
+</script>
+</body>
+</html>
