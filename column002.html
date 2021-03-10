@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logline Auto Generator Mar 2021</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: cornflowerblue;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px mediumturquoise;
+    }
+
+    h2 {
+      text-align: center;
+      color: #969696;
+    }
+
+    a {
+      color: deepskyblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px mediumturquoise;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: skyblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 200px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  </style>
+
+</head>
+<body>
+
+<h1> 스토리텔링 기계 실험 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<div class="navigation">
+  <small>
+  | <a href="http://www.hani.co.kr/arti/specialsection/esc_section/984614.html"> 
+    지난 칼럼 보기</a> 
+  || <a href="https://kimtaenim.github.io/column001.html"> 은유 기계 실험</a> |
+  </small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+    채만식의 "태평천하"에서 추린 215개 단어와 <br>
+    SF 및 판타지 어휘 20여개를 함께 사용합니다. <br>
+</small>
+</div>
+
+<br>
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "icon_fish1.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br> <br>
+
+<div class = "logline" id="delay2">
+  <h2>
+  &ldquo; &nbsp; <span id = "target"> </span> &nbsp; &rdquo;
+  </h2>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+ 
+///////
+
+var images = ['icon_fish1.png', 'icon_fish2.png', 'icon_fish3.png', 
+'icon_fish4.png', 'icon_fish5.png','icon_fish6.png', 'icon_fish7.png',
+'icon_fish8.png', 'icon_fish9.png','icon_fish10.png', 'icon_fish11.png',
+'icon_fish12.png', 'icon_fish13.png','icon_fish14.png'   
+  ]
+
+var who = ['영감', '사람', '아씨', '며느리', '개', '인력거꾼', '손자', 
+  '주사', '아이', '자식', '올챙이', '서방', '여학생', '두목', '양반', 
+  '두꺼비', '군수', '그놈', '어른', '명창', '아들', '짝', 
+  '경찰서장', '처', '부친', '녀석', '할아버지', '딸', '종', '어머니', 
+  '부자', '시어머니', '인간', '시아버지', '조부', '모친', '동기', 
+  '삼남', '화적', '소작인', '아내', '늙은이', '남자', '형', '노인', 
+  '학', '동서', '식구', '부인', '수령', '시체', '남편', '아빠', '대고모', 
+  '죽음', '손님', '병정', '여인', '여자', '깍쟁이', '애인', '광대', 
+  '사내', '공자', '인재', '자동차', '주지', '주인', '인물', '아버지', 
+  '색시', '노파', '뚱뚱이', '키다리', '총각', '화가',  '맹자', '영감태기',
+  '동무', '장사', '점원', '친구', '대장', '애기', '에미', 
+  '아기', '기집애', '고양이', '아무개', '선비', '여우', '곰', 
+  '애비', '마나님', '말동무', '동생', '어린애', '큰댁', '주임', '신랑', 
+  '진시황', '행복', '손녀', '부모', '신사', '조무래기', '거지', '파리', 
+  '아전', '경찰', '서기', '조모', '홀아비', '작은아버지', '아이들', '청년',
+  '귀신', '나비', '푼수', '아낙', '동갑', '막내', '어미', '친정아버지', 
+  '살쾡이', '곰보', '거상', '유지', '조카', '우정', '증조부', '숙모', 
+  '꼬마', '면서기', '임자', '지주', '짐승', '아우', '도련님'];
+
+var where = ['집', '서울', '방', '세상', '집안', '거리', '대문', 
+  '시골', '안방', '길', '태평천하', '대회', '땅', '마루', '고향', 
+  '동경', '학교', '시집', '조선', '버스', '논', '은행', '골목', '마당', 
+  '서양', '절', '건넌방', '인력거', '부민관', '하늘', '경찰서', 
+  '아랫목', '뜰', '저승', '진고개', '계동', '뒷문', '전차', '울타리', 
+  '윗목', '향교', '일본', '장안', '눈앞', '보리밭', '만리장성', '진나라', 
+  '타관', '정거장', '동네', '동대문', '사랑방', '영화', '오페라', '가게', 
+  '머리맡', '방송국', '프로그램', '이발소', '안국동', '네거리', 
+  '천장', '무대', '아래층', '앞자리', '앞줄', '극장', '문턱', '문지방', 
+  '동물원', '무덤', '부엌', '상점', '입구', '우미관', '벽'];
+
+var who_plus = ['우주괴물', '뱀파이어', '제다이', '대왕오징어', '좀비',
+  '연쇄살인마', '공룡', '판다', '펭귄', '마피아', '킬러', '나폴레옹'];
+
+var where_plus = ['실리콘밸리', '행성X', '호그와트', '마계', '외계',
+  '우주정거장', '쥐라기공원', '정글', '비밀기지', '바닷속 깊은 곳'];
+
+var who_concat = who.concat(who_plus, who_plus, who_plus, who_plus,);
+var where_concat = where.concat(where_plus, where_plus,
+    where_plus, where_plus);
+
+var action = ['에서 환생한 ', '에서 다시 태어난 ', '에서 사라졌다 나타난 ',
+  '에 불쑥 나타난 ', '에서 마주친 ', '에서 가까스로 구해낸 ', '에서 탈출한 ',
+  '에서 삼년만에 돌아온 ', '에서 실종된 ', '에서 돌아온 ', '에서 목격된 ',
+  '에 남겨진 ', '에 몸을 숨긴 ', '에서 기다리는 ', '에서 삼년만에 목격된 ',
+  '에서 행방불명된 ', '에서 다시 만난 ', '에 간 ', '에서 기다리는 '];
+
+var autoLogline = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateLogline(bazWho, bazAction, bazWhere) {
+    
+  var baz1 = choice(bazWhere);
+  var baz2 = choice(bazAction);
+  var baz3 = choice(bazWho);
+
+  return baz1 + baz2 + baz3;
+}
+
+function loglineWrite(bazWho, bazAction, bazWhere) {
+  autoLogline.innerHTML = generateLogline(bazWho, bazAction, bazWhere);
+
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+function radio_chk(){
+  var radio_btn_check = 0;
+  var radio_btn = document.getElementsByName("radio_btn");
+  for(var i=0; i<radio_btn.length ; i++){
+    if (radio_btn[i].checked == true) {
+    radio_btn_check++;
+    return i;
+    }
+  }
+
+  if (radio_btn_check == 0) {
+    return 0; 
+  }
+}
+
+
+var radio = radio_chk();
+console.log(who.length + where.length);
+
+loglineWrite(who_concat, action, where_concat);
+imageChange(images);
+
+
+</script>
+</body>
+</html>
