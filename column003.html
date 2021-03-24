@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal Auto Generator Mar 2021</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: black;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px deepskyblue;
+    }
+
+    h2 {
+      text-align: center;
+      color: mediumaquamarine;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 200px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  </style>
+
+</head>
+<body>
+
+<h1> 사업 아이디어 자동화 실험 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<div class="navigation">
+  <small>
+  | <a href="http://www.hani.co.kr/arti/SERIES/1552/"> 
+    지난 칼럼 보기</a> 
+  || <a href="https://kimtaenim.github.io/column002.html"> 스토리텔링 실험</a> |
+  </small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+     한겨레신문의 지난 기사 332개에서 뽑은 낱말을<br>
+     무작위로 조합해 사업 아이디어를 생성하는 실험<br>
+</small>
+</div>
+
+<br> 
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "icon_fish1.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br> <br>
+
+<div class = "logline" id="delay2">
+  <h2>
+  &ldquo; <span id = "target"> </span> &rdquo;
+  </h2>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+      var uniVal = bar.charCodeAt(bar.length -1);
+
+      if ((uniVal -16) % 28) {
+        return "을"
+      }
+      else {
+        return "를"
+      }
+    } 
+
+ 
+///////
+
+var images = ['icon_cat1.png', 'icon_cat2.png', 'icon_cat3.png', 
+    'icon_cat4.png', 'icon_cat5.png', 'icon_cat6.png', 'icon_cat7.png', 
+    'icon_cat8.png', 'icon_cat9.png', 'icon_cat10.png', 'icon_cat11.png', 
+    'icon_cat12.png', 'icon_cat13.png', 'icon_cat14.png', 'icon_cat15.png', 
+    'icon_cat16.png', 'icon_cat17.png', 'icon_cat18.png', 'icon_cat19.png', 
+    'icon_cat20.png'];
+
+var who_idea = ['기업', '소비자', '직원', '고객', '중소기업', '모두', '여성', 
+    '주부', '아이', '지역', '학생', '디자이너', '사원', '가정', 
+    '노동자', '피부', '인재', '구성원', '회원', '사용자', '청소년', '사무실', 
+    '엄마', '블로거'];
+
+var who_well = ['사람', '우리', '나', '인간','아이', '마을',
+    '가족', '가장', '학교', '눈', '모두', '스스로', '공동체',
+    '부부', '어머니', '개인', '부모', '아버지', '당신', '여러분', '현대인', 
+    '참가자', '친구', '남편', '엄마', '여성', '선생님', '청년', '가정', '아들', 
+    '매일', '유학생', '아내', '젊은이', '교사', '할머니', '화가', '딸'];
+
+var who_animal = ['동물', '고양이', '사람', '우리', '강아지', '비건', '가족', 
+    '반려동물', '반려견', '모두', '아이', '가장', '나', 
+    '인간', '길고양이', '활동가', '독자', '친구', '혼자', '일상', '아내', '동네'];
+
+var who_all = who_idea.concat(who_well, who_animal);
+
+var value_idea = ['성장', '변화', '창의력', '도전', '창조성', '발전'];
+
+var value_well = ['삶', '평화', '행복', '치유', '변화', '용서', '아픔', '병',
+    '자유', '건강', '웃음', '희망', '꿈'];
+    
+var value_animal = ['삶', '건강', '변화'];
+
+var value_all = value_idea.concat(value_well, value_animal);
+
+
+var product_idea = ['제품', '기술', '디자인', '광고', '상품', '게임', '정부',
+    '시간', '차', '브랜드', '공장', '투자', '책', '전략', 
+    '활동', '모니터', '경쟁', '선물', '서비스', '모델', '경영',
+    '자동차', '인터넷', '기획', '텔레비전', '식품', '조직', '활동',
+    '정보', '계획', '냉장고', '화장품', '스마트폰', '일자리',
+    '홈페이지', '글', '치킨', '연구', '의자', '프로그램',
+    '발표', '업무', '회의', '과제', '자전거', '컴퓨터', '제안', '센터',  
+    '이벤트', '나라', '홍보', '전시회', '집', 
+    '소비', '선택', '프린터', '음식', '매장', '조사', '제도', '세탁기', '모바일', 
+    '영화', '옷', '설계', '에너지',
+    '티브이', '보고서', '블로그', '지식', '페이스북', '작업', '비즈니스', '결정', 
+    '공모전', '라면', '기록', '계약', '유통', '자료', '사이트', 
+    '밥', '휴대전화', '프로젝트', '쇼핑몰', '가능성', '우유', 
+    '신발', '명품', '업종', '실험', '방송', '음악',
+    '약속', '공간', '소프트웨어', '복지', '개발', '카메라', '길', '질문', 
+    '원칙', '단체', '직장', '네트워크', '통신', '휴대폰', '기사', '방문', '시계', 
+    '국회', '금융', '가전제품', '요리', '뉴스', '도시락', '쇼핑', '단말기', 
+    '대화', '상상', '여행', '백화점', '스포츠', '안경', '독서', 
+    '장난감', '블록', '방', '사무실', '인터뷰', '버스', '아이템', 
+    '음료', '캠페인', '위원회', '가위', '영상', '경품', '기부', '칵테일', '기법', 
+    '가구', '박람회', '애니메이션'];
+
+var product_well = ['여행', '프로그램', '시간', '경험', '공부', '글', '운동', 
+    '차', '과학', '교육', '모임', '자동차', '공간', '출판', '기사', '선물', '사업', 
+    '병원', '훈련', '준비', '김치', '잠', '음악'];
+
+var product_animal = ['생각', '농장', '사진', '시간', '매장', '병원', '글', '생활', 
+    '이야기', '영상', '기사', '단체', '사회', '센터', '뉴스', '길', '펀딩', 
+    '밥', '책', '동물병원', '언론', '공간', '식당', '약', '인스타그램', '텀블벅']
+
+var product_all = product_idea.concat(product_well, product_animal);
+
+var help = ['돕는', '위한']
+
+
+var autoProposal = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateProposal(bazWho, bazValue, bazHelp, bazProduct) {
+    
+  var baz1 = choice(bazWho)+"의 ";
+  var baz2 = choice(bazValue);
+  var baz3 = postposition(baz2)+" ";
+  var baz4 = choice(bazHelp)+" ";
+  var baz5 = choice(bazProduct);
+
+  return baz1 + baz2 + baz3 + baz4 + baz5;
+}
+
+function proposalWrite(bazWho, bazValue, bazHelp, bazProduct) {
+  autoProposal.innerHTML = generateProposal(bazWho, bazValue, bazHelp, bazProduct);
+
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(who_all, value_all, help, product_all);
+imageChange(images);
+
+console.log(who_all.length);
+console.log(value_all.length);
+console.log(product_all.length);
+console.log(who_idea.length + value_idea.length + product_idea.length);
+
+</script>
+</body>
+</html>
