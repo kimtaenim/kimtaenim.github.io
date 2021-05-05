@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Mnemonic Peg System May 2021</title>
+
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif;}
+  
+      h1 {
+        text-align: center;
+        background-color: white;
+      }
+  
+      button {
+        all: unset;
+        background-color: #999999;
+        color: white;
+        padding: 2px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+  
+      h2 {
+        text-align: center;
+        color: #777777;
+      }
+  
+      .description {
+        text-align: center;
+      }
+  
+      .signature {
+        text-align: center;
+        color: #aaaaaa;
+      }
+  
+      .image-container {
+        text-align: center;
+        height: 200px; 
+      }
+  
+      .verse {
+        text-align: center;
+  
+      }
+  
+      #delay2 {
+        animation: fadein 2s;
+        -moz-animation: fadein 2s; /* Firefox */
+        -webkit-animation: fadein 2s; /* Safari and Chrome */
+        -o-animation: fadein 2s; /* Opera */
+    }
+    @keyframes fadein {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+    @-moz-keyframes fadein { /* Firefox */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+    @-o-keyframes fadein { /* Opera */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    #delay5 {
+  
+      animation: fadein 5s;
+      -moz-animation: fadein 5s; /* Firefox */
+      -webkit-animation: fadein 5s; /* Safari and Chrome */
+      -o-animation: fadein 5s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+    </style>
+
+</head>
+<body>
+    
+    <h1> 기 억 의  기 술  연 습 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<br> <br> <br>
+
+<div class="description">
+기억의 기술을 연습하는 페이지입니다. 계속 업데이트 중입니다.
+</div>
+
+<br> <br>
+<div class="image-container" id = "delay5" onclick = "nextPage()">
+    <img src = "peg0.png"  alt="아이콘" 
+     id="image4peg">
+   
+</div>
+
+<div class = "verse" id="delay2">
+    <h2>
+    &ldquo; &nbsp; <span id = "word2memorize"> 시작합니다 </span> &nbsp; &rdquo;
+    </h2>
+  </div>
+
+<div class = "description">
+<small>
+  <button onclick = "nextPage()"> 다음 단어를 외우시려면 클릭하세요. </button>
+</small>
+
+<br><br>
+
+<small>
+    <button onclick = "again()"> 처음부터 다시 하시려면 클릭하세요. </button>
+  </small>
+  </div>
+
+<br> <br> <br>
+
+
+
+</div>
+
+
+
+    <script>
+        const wordsWhole = ['나', '너', '귀뚜라미', '코스모스', '집', '하늘', 
+        '밤', '눈', '사람', '마음', '거리', '얼굴', '바람', '소리', '아침', 
+        '별', '가을', '생각', '사랑', '불', '어둠', '달', '봄', '아이', 
+        '이야기', '방', '바다', '노래', '나무', '손', '그림자', '길', 
+        '눈물', '집', '돌', '기차', '끝', '언덕', '저녁', '어머니', '머리', 
+        '물결', '시간', '겨울', '코', '조개', '포기', '숲', '햇님', '햇빛', 
+        '황혼', '단풍', '강물', '편지', '꽃', '비', '고향', '닭', '꽃밭', 
+        '구름', '잎', '마을', '지붕', '나비', '발', '전차', '성벽', 
+        '해바라기', '시계', '전등', '새벽', '글씨', '울음', '뼈', '젊은이', 
+        '남대문', '간판', '산', '세계', '창', '논', '여름', '공부', '안개', 
+        '인생', '바구니', '혼자', '꿈', '땅', '춤', '터널', '지도', '자국', 
+        '처음', '감자', '시대', '우주', '계절', '달걀', '연기', '굴뚝', '종이',
+        '죽음', '물', '물감', '처마', '병아리', '달빛', '돌담', '걱정', 
+        '비둘기', '공기', '민들레', '살구나무', '십자가', '흙', '손가락', 
+        '뒷골목', '진달래', '문살', '바닷가', '바위', '슬픔', '번개', '잔디밭', 
+        '나뭇가지', '노트']; // 윤동주의 시어 127개
+
+        const images = ['peg0.png','peg1.png', 'peg2.png', 'peg3.png', 'peg4.png', 
+        'peg5.png', 'peg6.png','peg7.png', 'peg8.png','peg9.png', 'peg10.png',
+        'peg0.png','peg1.png', 'peg2.png', 'peg3.png', 'peg4.png', 
+        'peg5.png', 'peg6.png','peg7.png', 'peg8.png','peg9.png', 'peg10.png'];
+            //  나중에 추가할 것
+
+        var words = []; // 초기화
+        var lastNo = 20; // 나중에 선택할 수 있게 바꾸려 함
+        var i = 0;
+
+        function isInArray(foo_word, bar_array) {
+            if ( bar_array.indexOf(foo_word) === -1 ) {  // foo not in bar
+                return false
+            } else { // foo in bar
+                return true
+            }
+        }
+
+        function numberRand(foo_int) {
+            return Math.floor(Math.random() * foo_int);
+                // foo_int = length of array
+        }
+        
+        function choiceRand(bar_array) {
+            return bar_array[numberRand(bar_array.length)];
+        }
+
+        function spliceRand(foo_word, bar_array) {
+            baz = numberRand(bar_array.length + 1);
+            
+            return bar_array.splice(baz, 0, foo_word);
+        }
+
+        function generateNewArray(foo_array, bar_length) {
+          baz_array = [];
+
+          do {
+            foo_word = choiceRand(foo_array);
+
+            if ( isInArray(foo_word, baz_array) ) {
+                continue;
+            } else {
+                spliceRand(foo_word, baz_array);
+
+            }
+          }
+
+          while (baz_array.length < bar_length);
+
+          return baz_array;
+        }
+
+        function nextPage() {
+
+            i++ ;
+
+            if (i > lastNo) {
+                i = 1 ; //초기화 //나중에 변경
+            }
+
+            document.getElementById("image4peg").src = images[i];
+            document.getElementById("word2memorize").innerHTML = words[i-1];
+
+        }
+
+        function again() {
+            window.location.reload();
+        }
+
+    words = generateNewArray(wordsWhole, 10);
+    words = words.concat(["기억을 떠올려보세요", "기억을 떠올려보세요","기억을 떠올려보세요",
+    "기억을 떠올려보세요", "기억을 떠올려보세요", "기억을 떠올려보세요", "기억을 떠올려보세요",
+    "기억을 떠올려보세요", "기억을 떠올려보세요", "기억을 떠올려보세요"])
+
+    </script>
+
+</body>
+</html>
