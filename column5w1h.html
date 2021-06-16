@@ -138,7 +138,8 @@
     <h1> 육 하 원 칙   메 모 장 </h1>
    
     <p class="signature">
-    <small> 한겨레ESC 김태권의 영감이 온다 </small>
+    <small> 한겨레ESC 김태권의 영감이 온다 
+    </small>
     </p>
 
 
@@ -158,15 +159,15 @@
             <tr><td><label><input type="text" value="왜?" size="53" id="why"></label></tr>
         
             <tr>
-               <td><button><small>떠오르는 생각을 메모한 후 클릭해보세요.</small></button></td> 
+               <td><button><small>메모하고 클릭하면 아이디어가 하나씩 늘어납니다.</small></button></td> 
             </tr>
 
             <tr><td><div class="image-container" id = "delay5"> <img src = "icon5W1H.png"  alt="아이콘">
             </div></td></tr>
 
-            <tr><td><textarea id="output" cols="53" rows="4">누가 언제 어디서 무엇을 어떻게 한다, 왜</textarea></td></tr>
+            <tr><td><textarea id="output" cols="53" rows="4" placeholder="누가 언제 어디서 무엇을 어떻게 한다, 왜"></textarea></td></tr>
 
-            <tr><td><button onclick="copyTxt()"><small>클립보드에 복사하고 원하는 곳에 붙여넣으세요.</small></button></td></tr>
+            <tr><td><button onclick="copyTxt()"><small>클립보드에 복사하여 원하는 곳에 붙여넣으세요.</small></button></td></tr>
 		</table> 
     </form>
 	
@@ -185,9 +186,10 @@
             var txt = who + " " + when + " " + where + " " +
                     how + " " + what + " " + why;
 
-            var len = "   ((" + txt.length + "자))";
+            var len = "   ((" + txt.length + "자))" +"\n";
 
-            document.getElementById("output").value = txt+len;
+            document.getElementById("output").value = 
+                document.getElementById("output").value + txt+len;
         }
 
         function copyTxt() {
