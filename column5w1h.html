@@ -29,7 +29,7 @@
       
           button {
             all: unset;
-            background-color: #999999;
+            background-color: steelblue;
             color: white;
             padding: 2px 18px;
             border-radius: 6px;
@@ -158,35 +158,28 @@
   <form action="javascript:local();">
     
 		<table>
-			<tr>
-				<td colspan="2"><label><input type="text" value="누가?" size="53" id="who"></label></td>
-            </tr>
+			<tr><td><label><input type="text" value="누가?" size="53" id="who"></label></td></tr>
+           
+            <tr><td><label><input type="text" value="언제?" size="53" id="when"></label></td></tr>
+            
+            <tr><td><label><input type="text" value="어디서?" size="53" id="where"></label></td></tr>
+        
+            <tr><td><label><input type="text" value="무엇을?" size="53" id="what"></label></td></tr>
+
+            <tr><td><label><input type="text" value="어떻게?" size="53" id="how"></label></td></tr>
+            
+            <tr><td><label><input type="text" value="왜?" size="53" id="why"></label></tr>
+        
             <tr>
-                <td><label><input type="text" value="언제?" size="21" id="when"></label></td>
-                <td><label><input type="text" value="어디서?" size="21" id="where"></label></td>
-            </tr>
-            <tr>
-                <td><label><input type="text" value="무엇을?" size="21" id="what"></label></td>
-                <td><label><input type="text" value="어떻게?" size="21" id="how"></label></td>
-            </tr>
-            <tr>
-                <td colspan="2"><label><input type="text" value="왜?" size="53" id="why"></label>
-			</tr>
-            <tr>
-               <td colspan="2"><button><small>떠오르는 생각을 메모한 후 클릭해보세요.</small></button></td> 
+               <td><button><small>떠오르는 생각을 메모한 후 클릭해보세요.</small></button></td> 
             </tr>
 
-            <tr><td colspan="2"><div class="image-container" id = "delay5">
-                <img src = "icon7.png"  alt="아이콘">
-               
+            <tr><td><div class="image-container" id = "delay5"> <img src = "icon7.png"  alt="아이콘">
             </div></td></tr>
 
-            <tr><td colspan="2"><input type="text" id="output" size="53" value="누가 언제 어디서 무엇을 어떻게 한다, 왜"></td></tr>
+            <tr><td><textarea id="output" cols="53" rows="4">누가 언제 어디서 무엇을 어떻게 한다, 왜</textarea></td></tr>
 
-            <tr><td colspan="2">
-                <button onclick="copyTxt()"><small>클립보드에 복사하고 원하는 곳에 붙여넣으세요.</small></button>
-
-            </td></tr>
+            <tr><td><button onclick="copyTxt()"><small>클립보드에 복사하고 원하는 곳에 붙여넣으세요.</small></button></td></tr>
 		</table> 
     </form>
 	
