@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>5W1H-Memopad June 2021</title>
+
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif;}
+        
+        table {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            border: 0;
+        }
+        td {
+            padding: 2px 15px;
+            border: 0;
+            vertical-align: middle;
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: white;
+          }
+      
+          button {
+            all: unset;
+            background-color: #999999;
+            color: white;
+            padding: 2px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+      
+          h2 {
+            text-align: center;
+            color: #777777;
+          }
+      
+          .description {
+            text-align: center;
+          }
+      
+          .signature {
+            text-align: center;
+            color: #aaaaaa;
+          }
+      
+          .image-container {
+            text-align: center;
+            height: 200px; 
+          }
+      
+          .verse {
+            text-align: center;
+      
+          }
+      
+          #delay2 {
+            animation: fadein 2s;
+            -moz-animation: fadein 2s; /* Firefox */
+            -webkit-animation: fadein 2s; /* Safari and Chrome */
+            -o-animation: fadein 2s; /* Opera */
+        }
+        @keyframes fadein {
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-moz-keyframes fadein { /* Firefox */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-o-keyframes fadein { /* Opera */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        #delay5 {
+      
+          animation: fadein 5s;
+          -moz-animation: fadein 5s; /* Firefox */
+          -webkit-animation: fadein 5s; /* Safari and Chrome */
+          -o-animation: fadein 5s; /* Opera */
+      }
+      @keyframes fadein {
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-moz-keyframes fadein { /* Firefox */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-webkit-keyframes fadein { /* Safari and Chrome */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-o-keyframes fadein { /* Opera */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+      
+        </style>
+    
+    
+</head>
+<body>
+
+    <h1> 육 하 원 칙   메 모 장 </h1>
+
+    <div>
+    
+    <div class="signature">
+    <small> 한겨레ESC 김태권의 영감이 온다 </small>
+    </div>
+    
+ <br><br>
+
+  <form action="javascript:local();">
+    
+		<table>
+			<tr>
+				<td colspan="2"><label><input type="text" value="누가?" size="54" id="who"></label></td>
+            </tr>
+            <tr>
+                <td><label><input type="text" value="언제?" size="22" id="when"></label></td>
+                <td><label><input type="text" value="어디서?" size="22" id="where"></label></td>
+            </tr>
+            <tr>
+                <td><label><input type="text" value="무엇을?" size="22" id="what"></label></td>
+                <td><label><input type="text" value="어떻게?" size="22" id="how"></label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label><input type="text" value="왜?" size="54" id="why"></label>
+			</tr>
+            <tr>
+               <td colspan="2"><button><small>떠오르는 생각을 메모한 후 클릭해보세요.</small></button></td> 
+            </tr>
+
+            <tr><td colspan="2"><div class="image-container" id = "delay5">
+                <img src = "icon7.png"  alt="아이콘">
+               
+            </div></td></tr>
+
+            <tr><td colspan="2"><input type="text" id="output" size="54" value="누가 언제 어디서 무엇을 어떻게 한다, 왜"></td></tr>
+
+            <tr><td colspan="2">
+                <button onclick="copyTxt()"><small>클립보드에 복사하고 원하는 곳에 붙여넣으세요.</small></button>
+
+            </td></tr>
+		</table> 
+    </form>
+	
+
+
+    <script>
+
+        function local() {
+            var who = document.getElementById("who").value;
+            var when = document.getElementById("when").value;
+            var where = document.getElementById("where").value;
+            var what = document.getElementById("what").value;
+            var how = document.getElementById("how").value;
+            var why = document.getElementById("why").value;
+
+            var txt = who + " " + when + " " + where + " " +
+                    how + " " + what + " " + why;
+
+            var len = "   ((" + txt.length + "자))";
+
+            document.getElementById("output").value = txt+len;
+        }
+
+        function copyTxt() {
+            var obj = document.getElementById("output");
+
+            obj.focus();
+            obj.select();
+            obj.setSelectionRange(0,99999);
+
+            document.execCommand("copy");
+
+            alert("클립보드에 복사되었습니다!");
+        }
+
+
+    </script>
+</body>
+</html>
