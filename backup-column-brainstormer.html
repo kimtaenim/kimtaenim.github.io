@@ -25,30 +25,30 @@
         h1 {
             text-align: center;
             background-color: white;
-        }
+          }
       
-        button {
+          button {
             all: unset;
             background-color: steelblue;
             color: white;
             padding: 2px 18px;
             border-radius: 6px;
             cursor: pointer;
-        }
+          }
       
           h2 {
             text-align: center;
             color: #777777;
-        }
+          }
       
-          #questions {
-            text-align: left;
-        }
+          .description {
+            text-align: center;
+          }
       
           .signature {
             text-align: center;
             color: #aaaaaa;
-        }
+          }
            
           #delay2 {
             animation: fadein 2s;
@@ -144,25 +144,19 @@
     </p>
 
 
-	<table>
-        <tr><td>
-            <input id="keyword" value="고민" onkeyup='keywordInput()'/>
-        </td></tr>
-
-		<tr><td>
-            <p id="questions" cols="53"></p>
-        </td></tr>
+  <form action="javascript:local();">
+    
+		<table>
+			<tr><td>
+                <p id="question" cols="53"></p></td></tr>
            
-        <tr><td>
-            <div class="image-container" id = "delay5">
-            <img src = "storm5.png"  alt="스톰트루퍼" id="random_image"
+            <tr><td><div class="image-container" id = "delay5">
+                <img src = "storm5.png"  alt="스톰트루퍼" id="random_image"
                 onclick= "imageChange()">
-            </div>
-        </td></tr>
+            </div></td></tr>
 
             <tr><td>
-                <textarea id="brainstorming" cols="53" rows="6" 
-                placeholder="①고민하는 주제를 입력하면 ②여러 질문이 나옵니다. ③떠오르는 생각을 적고 ④클립보드에 복사하세요."></textarea></td></tr>
+                <textarea id="output" cols="53" rows="6" placeholder="질문을 보고 떠오르는 대답을 아무 말이나 입력하세요..."></textarea></td></tr>
         
             <tr><td><button onclick="copyTxt()"><small>클립보드에 복사하여 원하는 곳에 붙여넣으세요.</small></button></td></tr>
 		</table> 
@@ -171,9 +165,11 @@
 
 
     <script>
-    
-        const howManyQues = 14;
-        
+
+        const howManyQues = 30
+
+        const ques = ['누구?', '언제?', '어디?', '어떻게?', '무엇?', '왜?'];
+
         const lexi = ['기업', '소비자', '직원', '고객', '중소기업', '모두', '여성', 
         '주부', '아이', '지역', '학생', '디자이너', '사원', '가정', '노동자', 
 		'피부', '인재', '구성원', '회원', '사용자', '청소년', '사무실', 
@@ -209,60 +205,59 @@
         '생각', '농장', '사진', '시간', '매장', '병원', '글', '생활', 
         '이야기', '영상', '기사', '단체', '사회', '센터', '뉴스', '길', '펀딩', 
         '밥', '책', '동물병원', '언론', '공간', '식당', '약', '인스타그램', '텀블벅'];
-            // 한겨레의 332개 기사에서 뽑은 많이 쓰인 단어
+            // 한겨레의 332개 기사에서 뽑은 많이 쓰인 단어 298개
+
         
         const images = ['storm0.png', 'storm1.png', 'storm2.png', 'storm3.png', 'storm4.png', 
 		'storm5.png', 'storm6.png', 'storm7.png', 'storm8.png', 'storm9.png'];
 
-        function keywordInput() {
-            var key = document.getElementById('keyword').value;
+        var autoImage = document.getElementById("random_image");
 
-            document.getElementById('questions').innerHTML=integrate(howManyQues, key);       
-            imageChange();
+        function local() {
+            window.location.reload();
         }
 
         function postposition(bar) {
             var uniVal = bar.charCodeAt(bar.length -1);
       
             if ((uniVal -16) % 28) {
-              return "과"
+              return "은"
             }
             else {
-              return "와"
+              return "는"
             }
         }
 
         function choice(foo) {
             var randNumber = Math.floor(Math.random()*foo.length);
-      
             return foo[randNumber];
         }
-        
-        function generate(key) {
+      
+        function generate() {
     
-            var baz2 = postposition(key)+" ";
-            var baz3 = choice(lexi);
+            var baz1 = choice(lexi);
+            var baz2 = postposition(baz1)+" ";
+            var baz3 = choice(ques);
           
-            return key + baz2 + baz3 +"? ";
+            return baz1 + baz2 + baz3;
         }
 
-        function integrate(howManyQues, key) {
+        function integrate(howManyQues) {
             var txt = "";
             
             for (i = 0; i < howManyQues; i++) {
-                txt += generate(key) + " " ;
+            txt += generate() + " " ;
             }
 
             return txt;
         }
 
         function imageChange() {
-            var autoImage = document.getElementById("random_image");
             autoImage.src = choice(images);
         }
 
         function copyTxt() {
-            var obj = document.getElementById("brainstorming");
+            var obj = document.getElementById("output");
 
             obj.focus();
             obj.select();
@@ -274,12 +269,9 @@
 
             alert("클립보드에 복사되었습니다!");
         }
+
+        document.getElementById('question').innerHTML=integrate(howManyQues);
         
-        document.getElementById('questions').innerHTML=integrate(howManyQues, '고민');       
-
- 
-
-
     </script>
 </body>
 </html>
