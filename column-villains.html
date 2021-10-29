@@ -57,7 +57,7 @@
 
     .image-container {
       text-align: center;
-      height: 200px; 
+      height: 128px; 
     }
 
     .logline {
@@ -181,6 +181,8 @@
    
 </div>
 
+<br>
+
 <div class = "description">
 <small>
   <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
@@ -189,7 +191,7 @@
 </div>
 
 
-<br> <br> <br>
+<br> <br>
 
 <div class = "logline" id="delay2">
   <h2>
@@ -210,7 +212,6 @@
     function choice(foo) {
       var randNumber = Math.floor(Math.random()*foo.length);
 
-      console.log(foo[randNumber]);
       return foo[randNumber];
 
     }
@@ -220,7 +221,6 @@
     }
 
     function postposition(bar) {
-        console.log(typeof bar) ;
       var uniVal = bar.charCodeAt(bar.length -1);
     
 
