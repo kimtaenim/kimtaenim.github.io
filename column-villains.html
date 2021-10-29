@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal Auto Generator Mar 2021</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: indigo;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px deepskyblue;
+    }
+
+    h2 {
+      text-align: center;
+      color: indigo;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 200px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+    @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+    @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+    @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+    @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h1> 악당 이야기 뒤집어 보기 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<div class="navigation">
+  <small>
+  <a href="http://www.hani.co.kr/arti/SERIES/1552/"> 
+    칼럼 모아서 보기</a> 
+  </small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+     영화 속 유명한 악당 이야기도<br>
+     뒤집어 보면 참신하다는 실험<br>
+</small>
+</div>
+
+<br> 
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "icon_villain14.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br> <br>
+
+<div class = "logline" id="delay2">
+  <h2>
+  <span id = "target"> </span>
+  </h2>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      console.log(foo[randNumber]);
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+        console.log(typeof bar) ;
+      var uniVal = bar.charCodeAt(bar.length -1);
+    
+
+
+      if ((uniVal -16) % 28) {
+        return "이"
+      }
+      else {
+        return "가"
+      }
+    } 
+
+ 
+///////
+
+var images = ['icon_villain01.png', 'icon_villain02.png', 'icon_villain03.png',
+'icon_villain04.png', 'icon_villain05.png', 'icon_villain06.png',
+'icon_villain07.png', 'icon_villain08.png', 'icon_villain09.png',
+'icon_villain10.png', 'icon_villain11.png', 'icon_villain12.png',
+'icon_villain13.png', 'icon_villain14.png', 'icon_villain15.png'];
+
+var villain = ['말레피센트', '에일리언', '드라큘라', '조커', '렉스 루터',
+    '할리퀸', '서쪽 마녀', '캣우먼', '고질라', '킹기도라', '프레데터',
+    '터미네이터', '프랑켄슈타인', '크루엘라'];
+
+var adverb = ['사실은', '알고 보니', '뜻밖에도', '의외로'];
+
+var act = ['지구를 구했', '외계인을 물리쳤', '내 목숨을 구했',
+    '봉사활동을 다닌', '내 숙제를 대신해줬', '어릴 때 착했', 
+    '약한 사람을 보살핀', '불의를 보면 못참는', '길고양이 밥을 준',
+    '아이를 잘 돌본', '몸 불편한 사람을 돕는', '남을 잘 챙긴'];
+
+
+
+var autoProposal = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateProposal(bazVillain, bazAdverb, bazAct) {
+    
+  var baz1 = choice(bazVillain);
+  var baz2 = postposition(baz1)+" ";
+  var baz3 = choice(bazAdverb)+" ";
+  var baz4 = choice(bazAct)+"다더라.";
+
+  return baz1 + baz2 + baz3 + baz4;
+}
+
+function proposalWrite(bazVillain, bazAdverb, bazAct) {
+  autoProposal.innerHTML = generateProposal(bazVillain, bazAdverb, bazAct);
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(villain, adverb, act);
+imageChange(images);
+
+</script>
+</body>
+</html>
