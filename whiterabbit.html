@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call to Adventure Apr 2022</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #263644;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h4 {
+      text-align: center;
+      color: #4c6b88;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 200px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h1> 스토리텔링의 시작 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<div class="navigation">
+  <small>
+  <a href="http://www.hani.co.kr/arti/SERIES/1552/"> 
+    지난 칼럼 모아서 보기</a>
+  &nbsp; &nbsp; | &nbsp; &nbsp;
+  <a href="https://www.hani.co.kr/arti/specialsection/esc_section/1039999.html">
+    이야기 어떻게 시작할까</a>
+  </small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+     흰 토끼를 만나다
+</small>
+</div>
+
+<br> 
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "px200img10.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "logline" id="delay2">
+  <h4>
+  <span id = "target"> </span>
+  </h4>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+      var uniVal = bar.charCodeAt(bar.length -1);
+    
+
+
+      if ((uniVal -16) % 28) {
+        return "이"
+      }
+      else {
+        return "가"
+      }
+    } 
+
+ 
+///////
+
+var images = ['px200img1.png', 'px200img2.png', 'px200img3.png',
+'px200img4.png', 'px200img5.png', 'px200img6.png', 'px200img7.png',
+'px200img8.png', 'px200img9.png', 'px200img10.png', 'px200img11.png',
+'px200img12.png', 'px200img13.png'];
+
+var part1 = ['흰 토끼를 마주치고', '운명적인 사랑에 빠지고', 
+'충격적인 사고를 당하고', '현명한 노인을 만나고',
+'수상한 사람을 목격하고', '자객의 습격을 받고', '마법사의 방문을 받고', 
+'우연히 손님을 만나고', '선생님을 만나고', '낯선 사람을 마주치고', 
+'해묵은 원수와 마주치고', '오래 전 친구를 재회하여', '헤어진 연인으로부터',
+'병 속에 든 편지를 읽고', '책갈피에 숨겨둔 쪽지를 읽고', 
+'이메일을 읽고', '익명의 투서를 받고', '미래의 내가 보낸 편지를 읽고',
+'기이한 꿈을 꾸고', '꿈에서 본 것과 똑같은 풍경을 마주치고'];
+
+var part2 = ['변화의 때가 왔음을', '한 시대가 끝났음을', '떠나야 할 때가 왔음을', 
+'여기서 탈출해야 한다는 사실을', '이대로 살아서는 안 된다는 사실을', 
+'내 인생이 달라지리라는 것을', '다른 곳으로 떠나야 할 때라는 것을', 
+'내가 모르는 내 인생의 비밀이 있었음을', '믿었던 사람이 나를 배신했음을', 
+'지긋지긋한 일상에서 벗어날 때임을', '나른한 오후를 탈출할 기회라고', 
+'지금까지 내 삶이 거짓이었음을', '새로운 기회가 찾아왔음을', 
+'하던 일을 그만 두어야 함을', '무언가 큰 변화가 일어나리라는 예감을', 
+'가까운 사람이 나를 속이고 있음을'];
+
+var part3 = ['알아차리는데', '깨닫는데', '느끼는데', '귀띔받는데', '눈치채는데'];
+
+
+
+var autoProposal = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateProposal(bazpart1, bazpart2, bazpart3) {
+    
+  var baz1 = "이야기 첫머리에서 나는 ";
+  var baz2 = choice(bazpart1)+" ";
+  var baz3 = choice(bazpart2)+" ";
+  var baz4 = choice(bazpart3)+"...";
+
+  return baz1 + baz2 + baz3 + baz4;
+}
+
+function proposalWrite(bazpart1, bazpart2, bazpart3) {
+  autoProposal.innerHTML = generateProposal(bazpart1, bazpart2, bazpart3);
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(part1, part2, part3);
+imageChange(images);
+
+</script>
+</body>
+</html>
