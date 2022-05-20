@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reluctance to Call May 2022</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #263644;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h4 {
+      text-align: center;
+      color: #4c6b88;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h1> 망설이는 주인공 </h1>
+
+<div>
+
+<div class="signature">
+<small> 한겨레ESC 김태권의 영감이 온다 </small>
+</div>
+
+<div class="navigation">
+  <small>
+  <a href="http://www.hani.co.kr/arti/SERIES/1552/"> 
+    지난 칼럼 모아서 보기</a>
+  &nbsp; &nbsp; | &nbsp; &nbsp;
+  <a href="https://www.hani.co.kr/arti/specialsection/esc_section/1043705.html">
+    진달래꽃 뿌리는 사람</a>
+  </small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+     흰토끼와 진달래꽃
+</small>
+</div>
+
+<br> 
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "palevioletred6.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 영감이 떠오를 때까지 이곳을 클릭해 보세요. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "logline" id="delay2">
+  <h4>
+  <span id = "target"> </span>
+  </h4>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+      var uniVal = bar.charCodeAt(bar.length -1);
+    
+
+
+      if ((uniVal -16) % 28) {
+        return "이"
+      }
+      else {
+        return "가"
+      }
+    } 
+
+ 
+///////
+
+var images = ['palevioletred1.png', 'palevioletred2.png',
+'palevioletred3.png', 'palevioletred4.png',
+'palevioletred5.png', 'palevioletred6.png',
+'palevioletred7.png', 'palevioletred8.png'];
+
+var part1 = ['지루한 삶을 살던 주인공은', '바쁜 삶에 지친 주인공은',
+'변화 없는 삶을 살던 주인공은', '마음 편히 살던 주인공은',
+'외로움에 시달리던 주인공은', '평범하게 살던 주인공은']
+
+var part2 = ['흰 토끼를 만난 후', '운명적인 사랑에 빠진 후', 
+'사고를 당한 후', '수상한 사람을 마주친 후', '자객의 습격을 받은 후',
+'낯선 손님을 만난 후', '해묵은 원수를 마주친 후', '옛친구를 만난 후',
+'기이한 꿈을 꾼 다음', '수수께끼 같은 편지를 읽은 후', '초대장을 받고',
+'꿈에서 본 것과 똑같은 풍경을 마주친 후'];
+
+var part3 = ['새로운 삶을 꿈꾸지만', '떠나야 한다고 마음 먹지만',
+'변화의 때가 왔음을 깨닫지만', '자신의 사명을 깨닫지만',
+'이대로 살아선 안되겠다고 생각하지만', '자신이 위기에 처했음을 알지만'];
+
+var part4 = ['책임져야 할 가족 때문에', '라이벌에게 지기 싫어서',
+'떠나지 못하게 막는 사람 때문에', '책임져야 할 임무 때문에',
+'일에 묶여 있어서', '습관 때문에', '오래된 약속 때문에', 
+'해묵은 관습 때문에', '돈을 주기로 한 사장님 때문에',
+'애물단지 같은 친구 때문에', '원수를 갚아야 하기 때문에',
+'울면서 붙잡는 사람 때문에', '사랑하는 사람을 떠날 수 없어'];
+
+var part5 = ['생각지도 못한 사건에 휘말리는데',
+'속만 끓이고 있는데', '이도저도 하지 못하는데', '망설이는데',  
+'새출발을 하지 못하는데', '발목을 잡히는데', '뜻을 접게 생겼는데',
+'꿈을 접을 상황인데', '아무것도 하지 못하는데'];
+
+var autoProposal = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateProposal(bazpart1, bazpart2, bazpart3, bazpart4, bazpart5) {
+    
+  var baz1 = choice(bazpart1)+" ";
+  var baz2 = choice(bazpart2)+" ";
+  var baz3 = choice(bazpart3)+", ";
+  var baz4 = choice(bazpart4)+" ";
+  var baz5 = choice(bazpart5)+"...";
+
+  return baz1 + baz2 + baz3 + baz4 + baz5;
+}
+
+function proposalWrite(bazpart1, bazpart2, bazpart3, bazpart4, bazpart5) {
+  autoProposal.innerHTML = generateProposal(bazpart1, bazpart2, bazpart3, bazpart4, bazpart5);
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(part1, part2, part3, part4, part5);
+imageChange(images);
+
+</script>
+</body>
+</html>
