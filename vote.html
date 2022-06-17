@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>political storytelling</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #263644;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h4 {
+      text-align: center;
+      color: #4c6b88;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: black;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .logline {
+      text-align: center;
+
+    }
+
+    #delay2 {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  #delay5 {
+
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h1> 정치에 상상력을 </h1>
+
+<div>
+
+<div class="signature">
+<small> 김태권의 영감이 온다 - 한겨레 칼럼 </small>
+</div>
+
+
+<div class="navigation">
+  <small>
+  <a href="http://www.hani.co.kr/arti/SERIES/1552/"> 
+    지난 칼럼 모아서 보기</a>
+        <!--
+  &nbsp; &nbsp; | &nbsp; &nbsp;
+  <a href="https://www.hani.co.kr/arti/specialsection/esc_section/1043705.html">
+    진달래꽃 뿌리는 사람</a>
+        -->
+</small>
+
+<br> <br> <br>
+
+<div class="description">
+<small>
+
+     밋밋한 정치, 신나는 정치, 위험한 정치
+</small>
+</div>
+
+<br> 
+
+<div class="image-container" id = "delay5" onclick = "inspire()">
+    <img src = "palevioletred6.png"  alt="아이콘" 
+     id="random_image">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 스토리텔링 생성하기 </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "logline" id="delay2">
+  <h4>
+  <span id = "target"> </span>
+  </h4>
+</div>
+
+</div>
+
+
+
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+    function postposition(bar) {
+      var uniVal = bar.charCodeAt(bar.length -1);
+    
+
+
+      if ((uniVal -16) % 28) {
+        return "이"
+      }
+      else {
+        return "가"
+      }
+    } 
+
+ 
+///////
+
+var images = ['vote1.png', 'vote2.png',
+'vote3.png', 'vote4.png',
+'vote5.png', 'vote6.png',
+'vote7.png'
+];
+
+var part1 = ['어린이를 생각하는', '여성을 위한',
+'동물권을 생각하는', '성소수자를 위한', '공동체를 위한',
+'이주자를 생각하는', '장애인을 위한', '비정규직을 위한',
+'차별받는 사람 없는', '노인을 위한', '젊은 유권자가 좋아할',
+'소액 투자자가 좋아할', '환경을 생각하는', '지구를 위한',
+'세입자를 위한', '중산층이 좋아할', '지방을 생각하는',
+'균형발전을 위한', '미래세대를 위한', '다문화를 위한' 
+];
+
+var part2 = ['진보의', '보수의', '중도의',
+'이상주의적인', '현실적인', '새로운', '혁신적인',
+'엉뚱한', '발랄한', '신나는', '낯선', '편안한',
+'화합하는', '우리들의', '뜨거운', '차가운',
+'혁명적인', '안정적인', '즐거운', '안정적인'
+];
+
+var part3 = ['세금', '안보', '국방', '복지',
+'법안', '개혁', '부동산', '예산', '서비스', 
+'행정', '자치', '재정', '긴축'
+];
+
+
+var autoProposal = document.getElementById("target");
+var autoImage = document.getElementById("random_image");
+
+function generateProposal(bazpart1, bazpart2, bazpart3) {
+    
+  var baz1 = choice(bazpart1)+" ";
+  var baz2 = choice(bazpart2)+" ";
+  var baz3 = choice(bazpart3);
+
+  return baz1 + baz2 + baz3;
+}
+
+function proposalWrite(bazpart1, bazpart2, bazpart3) {
+  autoProposal.innerHTML = generateProposal(bazpart1, bazpart2, bazpart3);
+} 
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(part1, part2, part3);
+imageChange(images);
+
+</script>
+</body>
+</html>
