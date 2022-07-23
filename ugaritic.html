@@ -11,6 +11,7 @@
 
     h1 {
       text-align: center;
+      font: Arial, sans-serif;
       background-color: white;
     }
 
@@ -28,6 +29,7 @@
     }
 
     h2 {
+      font-family:  'Times New Roman', Times, serif;
       text-align: center;
       color: darkgoldenrod;
     }
@@ -60,9 +62,13 @@
       height: 128px; 
     }
 
-    .logline {
+    .reading {
+      font-style: oblique;
       text-align: center;
+    }
 
+    #vocalisation {
+      font:  italic bold Georgia, serif;
     }
 
     #delay1 {
@@ -182,9 +188,9 @@
 
 <br> <br>
 
-<div class = "logline" id="delay2">
+<div class = "reading" id="delay2">
   <h2>
-  <i> <span id = "vocalisation"> </span> </i>
+  <span id = "vocalisation"> </span>
   </h2>
 </div>
 
@@ -263,26 +269,26 @@ const words = [
 ['knr', 'ukinnaru.png', '/kinnāru/', 'ki-na-rù {qittāl}'],
 ['l ksi!', 'ukussi.png', '/kussiʾ(i)/', 'vocative (ksu /kussiʾu/)'],
 ['arṣh', 'uarsah.png', '/ʾarṣah/', 'terminative (arṣ /ʾarṣu/)']
-['/kalbu/', 'ukalbusg.png', 'declension of klb', 'm. sg. nom.'],
-['/kalbi/', 'ukalbusg.png', 'declension of klb', 'm. sg. gen.'],
-['/kalba/', 'ukalbusg.png', 'declension of klb', 'm. sg. acc.'],
-['/kalbatu/', 'ukalbatusg.png', 'declension of klbt', 'f. sg. nom.'],
-['/kalbati/', 'ukalbatusg.png', 'declension of klbt', 'f. sg. gen.'],
-['/kalbata/', 'ukalbatusg.png', 'declension of klbt', 'f. sg. acc.'],
-['/kalbāmi/', 'ukalbudual.png', 'declension of klb', 'm. du. nom. st.abs.'],
-['/kalbêma/', 'ukalbudual.png', 'declension of klb', 'm. du. obl. st.abs.'],
-['/kalbā/', 'ukalbudual.png', 'declension of klb', 'm. du. nom. st.cs.'],
-['/kalbê/', 'ukalbudual.png', 'declension of klb', 'm. du. obl. st.cs.'],
-['/kalbatāmi/', 'ukalbatudual.png', 'declension of klbt', 'f. du. nom. st.abs.'],
-['/kalbatêma/', 'ukalbatudual.png', 'declension of klbt', 'f. du. obl. st.abs.'],
-['/kalbatā/', 'ukalbatudual.png', 'declension of klbt', 'f. du. nom. st.cs.'],
-['/kalbatê/', 'ukalbatudual.png', 'declension of klbt', 'f. du. obl. st.cs.'],
-['/kalabūma/', 'ukalbupl.png', 'declension of klb', 'm. pl. nom. st.abs.'],
-['/kalabīma/', 'ukalbupl.png', 'declension of klb', 'm. pl. obl. st.abs.'],
-['/kalabū/', 'ukalbupl.png', 'declension of klb', 'm. pl. nom. st.cs.'],
-['/kalabī/', 'ukalbupl.png', 'declension of klb', 'm. pl. obl. st.cs.'],
-['/kalabātu/', 'ukalbatupl.png', 'declension of klbt', 'f. pl. nom.'],
-['/kalabāti/', 'ukalbatupl.png', 'declension of klbt', 'f. pl. obl.'],
+['klb (m. sg. nom.)', 'ukalbusg.png', '/kalbu/', 'declension of klb'],
+['klb (m. sg. gen.)', 'ukalbusg.png', '/kalbi/', 'declension of klb'],
+['klb (m. sg. acc.)', 'ukalbusg.png', '/kalba/', 'declension of klb'],
+['klbt (f. sg. nom.)', 'ukalbatusg.png', '/kalbatu/', 'declension of klbt'],
+['klbt (f. sg. gen.)', 'ukalbatusg.png', '/kalbati/', 'declension of klbt'],
+['klbt (f. sg. acc.)', 'ukalbatusg.png', '/kalbata/', 'declension of klbt'],
+['klb (m. du. nom. abs.)', 'ukalbudual.png', '/kalbāmi/', 'declension of klb'],
+['klb (m. du. obl. abs.)', 'ukalbudual.png', '/kalbêma/', 'declension of klb'],
+['klb (m. du. nom. cs.)', 'ukalbudual.png', '/kalbā/', 'declension of klb'],
+['klb (m. du. obl. cs.)', 'ukalbudual.png', '/kalbê/', 'declension of klb'],
+['klbt (f. du. nom. abs.)', 'ukalbatudual.png', '/kalbatāmi/', 'declension of klbt'],
+['klbt (f. du. obl. abs.)', 'ukalbatudual.png', '/kalbatêma/', 'declension of klbt'],
+['klbt (f. du. nom. cs.)', 'ukalbatudual.png', '/kalbatā/', 'declension of klbt'],
+['klbt (f. du. obl. cs.)', 'ukalbatudual.png', '/kalbatê/', 'declension of klbt'],
+['klb (m. pl. nom. abs.)', 'ukalbupl.png', '/kalabūma/', 'declension of klb'],
+['klb (m. pl. obl. abs.)', 'ukalbupl.png', '/kalabīma/', 'declension of klb'],
+['klb (m. pl. nom. cs.)', 'ukalbupl.png', '/kalabū/', 'declension of klb'],
+['klb (m. pl. obl. cs.)', 'ukalbupl.png', '/kalabī/', 'declension of klb'],
+['klbt (f. pl. nom.)', 'ukalbatupl.png', '/kalabātu/', 'declension of klbt'],
+['klbt (f. pl. obl.)', 'ukalbatupl.png', '/kalabāti/', 'declension of klbt'],
 ['aḥd', 'uahhadu.png', '/ʾaḥ(ḥ)ad-/', 'm.'],
 ['aḥt', 'uahhadu.png', '/ʾaḥḥat-/', '</*aḥadat-/ f.'],
 ['ṯn', 'utina.png', '/ṯinā, ṯinê/', 'm.'],
@@ -291,6 +297,8 @@ const words = [
 ['pǧt aḥt', 'upugatuahhattu.png', '/puǧatu ʾaḥḥatu/', 'aḥt is an adjective.'],
 ['ṯt qštm', 'uqastema.png', '/ṯittā qaštêma/', 'qštm : oblique'],
 ['ṯn qlʿm', 'uqilema.png', '/ṯinā qilʿêma/', 'qlʿm : oblique']
+['arbʿ', 'uarbau.png', 'ʾarbaʿu', 'KTU4.169;RS15.083'],
+['arbʿm', 'uarbauma.png', 'ʾarbaʿūma', 'KTU4.169;RS15.083']
 ]
 
 var study = choice(words)
