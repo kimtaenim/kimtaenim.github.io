@@ -149,7 +149,7 @@
 	<table>
         <tr><td>
             <input id="textIn" size="38"
-            value="붙여넣기" onchange='textReplace()'>
+            value="붙여넣기" onkeyup='textReplace()'>
         </td></tr>
         
         <tr><td>
@@ -187,24 +187,10 @@
         const images = ['note1.png', 'note2.png', 'note3.png',
             'note4.png', 'note5.png', 'note6.png'];
 
-        const alphabet = [[')', 'ʾ'], ['h_', 'ḫ'], ['h^', 'ḫ'],
-            ['h.', 'ḥ'], ['t.', 'ṭ'], ['s^', 'š'], ['d_', 'ḏ'],
-            ['z.', 'ẓ'], ['(', 'ʿ'], ['s.', 'ṣ'], ['t_', 'ṯ'],
-            ['g.', 'ġ'], ['g^', 'ḡ'], ['s<', 'ś'], 
-            ['a_', 'ā'], ['e_', 'ē'], ['i_', 'ī'], ['o_', 'ō'],
-            ['u_', 'ū'], ['a^', 'â'], ['e^', 'ê'], ['i^', 'î'],
-            ['o^', 'ô'], ['u^', 'û']
-            ]
-
         function textReplace() {
             const textIn = document.getElementById('textIn').value;
 
-            for (var i = 0; i < alphabet.length ; i++) {
-                var x = alphabet[i];
-                textIn.replace(x[0], x[1]);
-            }
-
-            textIn.replace('a_', 'ā');
+            textIn.replace(/참석자*[1-9]+/g, ' ');
             textIn.replace(/[1-9]+:[1-9]+/g, ' ');
             textIn.replace(/s+/g, ' ').trim();
 
