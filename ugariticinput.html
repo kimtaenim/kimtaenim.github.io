@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clovanote2Notion July 2022</title>
+
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif;}
+        
+        table {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            border: 0;
+        }
+
+        td {
+            padding: 2px 15px;
+            border: 0;
+            vertical-align: middle;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkkhaki;
+            background-color: white;
+        }
+      
+        button {
+            all: unset;
+            background-color: darkkhaki;
+            color: white;
+            padding: 2px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+      
+          h2 {
+            text-align: center;
+            color: #777777;
+        }
+      
+          #questions {
+            text-align: left;
+        }
+      
+          .signature {
+            text-align: center;
+            color: #aaaaaa;
+        }
+           
+          #delay2 {
+            animation: fadein 2s;
+            -moz-animation: fadein 2s; /* Firefox */
+            -webkit-animation: fadein 2s; /* Safari and Chrome */
+            -o-animation: fadein 2s; /* Opera */
+        }
+        @keyframes fadein {
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-moz-keyframes fadein { /* Firefox */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-o-keyframes fadein { /* Opera */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        #delay5 {
+      
+          animation: fadein 5s;
+          -moz-animation: fadein 5s; /* Firefox */
+          -webkit-animation: fadein 5s; /* Safari and Chrome */
+          -o-animation: fadein 5s; /* Opera */
+      }
+      @keyframes fadein {
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-moz-keyframes fadein { /* Firefox */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-webkit-keyframes fadein { /* Safari and Chrome */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-o-keyframes fadein { /* Opera */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+      
+        </style>
+    
+    
+</head>
+<body>
+
+    <h1> 클로바노트TEXT정제 </h1>
+   
+    <p class="signature">
+    <small>클로바노트로 녹취한 TEXT를 붙여넣으면 
+        <br>참석자 이름과 시간 등을 정제해드립니다
+    </small>
+    </p>
+
+
+	<table>
+        <tr><td>
+        <input id="textIn" size="33">
+            <input type = "button" value = "go"
+            onclick ='textReplace()'> 
+        </td></tr> 
+        
+        <tr><td>
+            &nbsp;
+        </td></tr>
+
+        <tr><td>
+            <div class="image-container" id = "delay5">
+            <img src = "note2.png"  alt="펜과 노트" id="random_image"
+                onclick= "imageChange()">
+            </div>
+        </td></tr>
+
+        <tr><td>
+            &nbsp;
+        </td></tr>
+
+            <tr><td>
+                <textarea id="textOut" cols="38" rows="6">
+                </textarea>
+            </td></tr>
+        
+            <tr><td>
+                <button onclick="copyTxt('textOut')"><small>클립보드에 복사
+                </small></button>
+            </td></tr>
+
+		</table> 
+    </form>
+	
+
+
+    <script>
+    
+        process.stdin.resume();
+        process.stdin.setEncoding('utf8');
+
+        var data = '';
+        var reader = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        reader.on('line', (line) => {
+            data.push(line);
+        });
+        reader.on('close', () => {
+
+            console.log(data+'!!');
+
+            reader.close();
+            process.exit();
+        })
+
+        const images = ['note1.png', 'note2.png', 'note3.png',
+            'note4.png', 'note5.png', 'note6.png'];
+
+        function textReplace() {
+            const textn = document.getElementById('textIn').value;
+
+            textn.replace('a', 's');
+            textn.replace(/참석자*[1-9]+/g, ' ');
+            textn.replace(/[1-9]+:[1-9]+/g, ' ');
+            textn.replace(/s+/g, ' ').trim();
+
+            document.getElementById('textOut').innerHTML=textn;       
+            imageChange();
+        }
+
+     
+        function choice(foo) {
+            var randNumber = Math.floor(Math.random()*foo.length);
+      
+            return foo[randNumber];
+        }
+        
+ 
+
+        function imageChange() {
+            var autoImage = document.getElementById("random_image");
+            autoImage.src = choice(images);
+        }
+
+        function copyTxt(foo) {
+            var obj = document.getElementById(foo);
+
+            obj.focus();
+            obj.select();
+            obj.setSelectionRange(0,99999);
+
+            document.execCommand("copy");
+
+            alert("클립보드에 복사되었습니다!");
+        }
+        
+
+ 
+
+
+    </script>
+</body>
+</html>
