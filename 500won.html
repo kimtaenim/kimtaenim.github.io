@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ugaritic Vocalisation</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h3 {
+      text-align: center;
+      font: Arial, sans-serif;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: darkred;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h1 {
+      font-family:  'Arial', sans-serif;
+      text-align: center;
+      color: darkgoldenrod;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: #555;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .reading {
+      text-align: center;
+    }
+
+    #vocalisation {
+      font:  Arial, sans-serif;
+    }
+
+    #delay1 {
+      animation: fadein 5s;
+      -moz-animation: fadein 5s; /* Firefox */
+      -webkit-animation: fadein 5s; /* Safari and Chrome */
+      -o-animation: fadein 5s; /* Opera */
+  }
+
+    #delay2 {
+
+      animation: fadein 25s;
+      -moz-animation: fadein 25s; /* Firefox */
+      -webkit-animation: fadein 25s; /* Safari and Chrome */
+      -o-animation: fadein 25s; /* Opera */
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<br> <br>
+
+<div class="signature">
+    <small> U G A R i T i C </small>
+</div>
+
+
+<h3> 
+    <span id = "letters"> </span>
+</h3>
+
+
+<br> 
+<div class="image-container" id = "delay1" onclick = "inspire()">
+    <img src = "u_rasau.png"  alt="아이콘" 
+     id="meaning">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 다 른   문 제   보 기 </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "reading" id="delay2">
+  <h1>
+  <span id = "vocalisation"> </span>
+  </h1>
+</div>
+
+</div>
+
+
+<div class="description" id = "delay2">
+    <small>
+    
+        <span id = "commentary"> </span>
+    </small>
+    </div>
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+ 
+///////
+
+const words = [
+['대사 없이 몸짓, 표정으로만 표현하는 연극은?', 'r500_1.png', '무  언  극', '국 어 0 5'],
+['소수 1.578을 10배로 늘린다면 몇이 될까?', 'r500_2.png', '1  5 .  7  8', '수 학 1 0'], 
+['다양한 생물이 살며, 지구의 허파라고 불리는 지역의 이름은?', 'r500_3.png', '아  마  존', ' 사 회 1 9'],
+['땅이 끊어지면서 지각이 흔들리는 것은?', 'r500_4.png', '지      진', '과 학 0 7'],
+['가야 지역에서 많이 생산되었던 자원은?', 'r500_1.png', '철', '한 국 사 2 2'],
+['악보에서 음의 높이를 반음 내리는 기호는?', 'r500_2.png', '플      랫', '기 타 0 7']
+]
+
+var study = choice(words)
+document.getElementById('letters').innerHTML=study[0]
+document.getElementById('meaning').src=study[1]
+document.getElementById('vocalisation').innerHTML=study[2]
+document.getElementById('commentary').innerHTML=study[3]
+
+
+
+</script>
+</body>
+</html>
