@@ -148,10 +148,9 @@
 
 	<table>
         <tr><td>
-        <input id="textIn" size="33">
-            <input type = "button" value = "go"
-            onclick ='textReplace()'> 
-        </td></tr> 
+            <input id="textIn" size="38"
+            value="붙여넣기" onchange='textReplace()'>
+        </td></tr>
         
         <tr><td>
             &nbsp;
@@ -174,7 +173,7 @@
             </td></tr>
         
             <tr><td>
-                <button onclick="copyTxt('textOut')"><small>클립보드에 복사
+                <button onclick="copyTxt()"><small>클립보드에 복사
                 </small></button>
             </td></tr>
 
@@ -184,38 +183,18 @@
 
 
     <script>
-    
-        process.stdin.resume();
-        process.stdin.setEncoding('utf8');
-
-        var data = '';
-        var reader = require('readline').createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
-        reader.on('line', (line) => {
-            data.push(line);
-        });
-        reader.on('close', () => {
-
-            console.log(data+'!!');
-
-            reader.close();
-            process.exit();
-        })
-
+           
         const images = ['note1.png', 'note2.png', 'note3.png',
             'note4.png', 'note5.png', 'note6.png'];
 
         function textReplace() {
-            const textn = document.getElementById('textIn').value;
+            const textIn = document.getElementById('textIn').value;
 
-            textn.replace('a', 's');
-            textn.replace(/참석자*[1-9]+/g, ' ');
-            textn.replace(/[1-9]+:[1-9]+/g, ' ');
-            textn.replace(/s+/g, ' ').trim();
+            textIn.replace(/참석자*[1-9]+/, ' ');
+            textIn.replace(/[1-9]+:[1-9]+/, ' ');
+            textIn.replace(/s+/, ' ').trim();
 
-            document.getElementById('textOut').innerHTML=textn;       
+            document.getElementById('textOut').innerHTML=textIn;       
             imageChange();
         }
 
@@ -233,8 +212,8 @@
             autoImage.src = choice(images);
         }
 
-        function copyTxt(foo) {
-            var obj = document.getElementById(foo);
+        function copyTxt() {
+            var obj = document.getElementById("textOut");
 
             obj.focus();
             obj.select();
