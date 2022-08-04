@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>더 하 기 퀴 즈</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h2 {
+      text-align: center;
+      font: Arial, sans-serif;
+      color: deeppink;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: black;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h1 {
+      font-family:  Arial, Helvetica, sans-serif;
+      text-align: center;
+      color: palevioletred ;
+    }
+
+    a {
+      color: lightcoral ;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightpink ;
+    }
+
+    .description {
+      text-align: center;
+      color: #555;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .answers {
+      text-align: center;
+    }
+
+    #answer {
+      font:  sans-serif;
+    }
+
+    #delay1 {
+      animation: fadein 25s;
+      -moz-animation: fadein 25s; /* Firefox */
+      -webkit-animation: fadein 25s; /* Safari and Chrome */
+      -o-animation: fadein 25s; /* Opera */
+  }
+
+    #delay2 {
+
+      animation: fadein 35s;
+      -moz-animation: fadein 35s; /* Firefox */
+      -webkit-animation: fadein 35s; /* Safari and Chrome */
+      -o-animation: fadein 35s; /* Opera */
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<br> <br>
+
+<div class="signature">
+    <small> 더. 하. 기. 퀴. 즈.</small>
+</div>
+
+
+<h2> 
+    <span id = "quiz"> </span>
+</h2>
+
+
+<br> 
+<div class="image-container" id = "delay1" onclick = "inspire()">
+    <img src = "./ar6.png"  alt="아이콘" 
+     id="hint">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> 완 전 잘 해 요 !! </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "answers" id="delay2">
+  <h1>
+  <span id = "answer"> </span>
+  </h1>
+</div>
+
+</div>
+
+
+<div class="description" id = "delay2">
+    <small>
+    
+        <span id = "commentary"> </span>
+    </small>
+    </div>
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+ 
+///////
+
+const words = [
+['1 + 1', './ar/ar2.png', '2', '1 x 2'],
+['1 + 1 + 1', './ar/ar3.png', '3', '1 x 3'],
+['1 + 1 + 1 + 1', './ar/ar4.png', '4', '1 x 4'],
+['1 + 1 + 1 + 1 + 1', './ar/ar5.png', '5', '1 x 5'],
+['1+1+1+1+1 +1', './ar/ar6.png', '6', '1 x 6'],
+['1+1+1+1+1 +1+1', './ar/ar7.png', '7', '1 x 7'],
+['2 + 2', './ar/ar4.png', '4', '2 x 2'],
+['2 + 2 + 2', './ar/ar6.png', '6', '2 x 3'],
+['2 + 2 + 2 + 2', './ar/ar8.png', '8', '2 x 4'],
+['2 + 2 + 2 + 2 + 2', './ar/ar10.png', '10', '2 x 5'],
+['3 + 3', './ar/ar6.png', '6', '3 x 2'],
+['3 + 3 + 3', './ar/ar9.png', '9', '3 x 3'], 
+['3 + 3 + 3 + 3', './ar/ar12.png', '12', '3 x 4'],
+['3 + 3 + 3 + 3 + 3', './ar/ar15.png', '15', '3 x 5'],
+['4 + 4', './ar/ar8.png', '8', '4 x 2'],
+['4 + 4 + 4', './ar/ar12.png', '12', '4 x 3'],
+['5 + 5', './ar/ar10.png', '10', '5 x 2'], 
+['5 + 5 + 5', './ar/ar15.png', '15', '5 x 3'],
+['6 + 6', './ar/ar12.png', '12', '6 x 2'],
+['6 + 6 + 6', './ar/ar18.png', '18', '6 x 3'],
+['7 + 7', './ar/ar14.png', '14', '7 x 2'],
+['8 + 8', './ar/ar16.png', '16', '8 x 2'],
+['9 + 9', './ar/ar18.png', '18', '9 x 2'],
+['10 + 10', './ar/ar20.png', '20', '10 x 2']
+]
+
+var study = choice(words)
+document.getElementById('quiz').innerHTML=study[0]
+document.getElementById('hint').src=study[1]
+document.getElementById('answer').innerHTML=study[2]
+document.getElementById('commentary').innerHTML=study[3]
+
+
+
+</script>
+</body>
+</html>

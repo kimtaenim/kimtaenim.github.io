@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ugaritic Vocalisation</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h2 {
+      text-align: center;
+      font: Arial, sans-serif;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #263644;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h3 {
+      font-family:  'Times New Roman', Times, serif;
+      text-align: center;
+      color: peru;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: #555;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .reading {
+      font-style: oblique;
+      text-align: center;
+    }
+
+    #vocalisation {
+      font:  italic bold Georgia, serif;
+    }
+
+    #delay1 {
+      animation: fadein 15s;
+      -moz-animation: fadein 15s; /* Firefox */
+      -webkit-animation: fadein 15s; /* Safari and Chrome */
+      -o-animation: fadein 15s; /* Opera */
+  }
+
+    #delay2 {
+
+      animation: fadein 20s;
+      -moz-animation: fadein 20s; /* Firefox */
+      -webkit-animation: fadein 20s; /* Safari and Chrome */
+      -o-animation: fadein 20s; /* Opera */
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<br> <br>
+
+<div class="signature">
+    <small> U G A R i T i C - R</small>
+</div>
+
+
+<h2> 
+    <span id = "letters"> </span>
+</h2>
+
+
+<br> 
+<div class="image-container" id = "delay1" onclick = "inspire()">
+    <img src = "URhorse.png"  alt="아이콘" 
+     id="meaning">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> v o c a l i s a t i o n </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "reading" id="delay2">
+  <h3>
+  <span id = "vocalisation"> </span>
+  </h3>
+</div>
+
+</div>
+
+
+<div class="description" id = "delay2">
+    <small>
+    
+        <span id = "commentary"> </span>
+    </small>
+    </div>
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+ 
+///////
+
+const words = [
+['arbʿm. qšt', 'URbow.png', '/ʾarbaʿūma qašti/', 'KTU4.169.1.'],
+['alp. ḥẓm', 'URarrow.png', '/ʾalpu ḥiẓẓīma/', 'KTU4.169.2.'],
+['alp. nṯq', 'URclub.png', '/ʾalpu naṯqi/', 'KTU4.169.2-3.'],
+['ṯn. qlʿm', 'URshield.png', '/ṯinā qilʿêma/', 'KTU4.169.3.'],
+['ḫmš. ṣmdm w ḥrṣ', 'URwheels.png', '/ḫamišu ṣimdīma wa=ḥurṣu/', 'KTU4.169.4.'],
+['ṯryn. s̀s̀wm', 'URhorse.png', '/ṯaryānu s̀us̀uwīma/', 'KTU4.169.5.'],
+['ṯryn. aḥd. d bnš', 'URhelmet.png', '/ṯaryānu ʾaḥadu di=bunūši/', 'KTU4.169.6.'],
+['arbʿ. ṣmdm. apnt. w ḥrṣ', 'URwheels.png', '/ʾarbaʿu ṣimdīma ʾapannāti wa=ḥurṣu/', 'KTU4.169.7-8.'],
+['tšʿm. mrḥ. aḥd. kbd', 'URspear.png', '/tišʿūma murḥi ʾaḥada(?) kubda/', 'KTU4.169.9-10.']
+]
+
+var study = choice(words)
+document.getElementById('letters').innerHTML=study[0]
+document.getElementById('meaning').src=study[1]
+document.getElementById('vocalisation').innerHTML=study[2]
+document.getElementById('commentary').innerHTML=study[3]
+
+
+
+</script>
+</body>
+</html>
