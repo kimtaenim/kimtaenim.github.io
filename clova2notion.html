@@ -190,7 +190,7 @@
         function textReplace() {
             const textIn = document.getElementById('textIn').value;
 
-            textIn.replace(/참석자*[1-9]+/g, ' ');
+            textIn.replace(/참석자*[1-9]+/g, ' || ');
             textIn.replace(/[1-9]+:[1-9]+/g, ' ');
             textIn.replace(/s+/g, ' ').trim();
 
