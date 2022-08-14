@@ -192,7 +192,7 @@
 
             textIn.replace(/참석자*[1-9]+/g, ' ');
             textIn.replace(/[1-9]+:[1-9]+/g, ' | ');
-//            textIn.replace(/s+/g, ' ').trim();
+            textIn.replace(/s+/g, ' ').trim();
 
             document.getElementById('textOut').innerHTML=textIn;       
             imageChange();
