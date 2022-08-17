@@ -40,7 +40,7 @@
       
           h2 {
             text-align: center;
-            color: #777777;
+            color: #777;
         }
       
           #questions {
@@ -49,7 +49,7 @@
       
           .signature {
             text-align: center;
-            color: #aaaaaa;
+            color: #999 ;
         }
            
           #delay2 {
@@ -158,7 +158,7 @@
 
         <tr><td>
             <div class="image-container" id = "delay5">
-            <img src = "note2.png"  alt="펜과 노트" id="random_image"
+            <img src = "cclover9.png"  alt="클 로 바" id="random_image"
                 onclick= "imageChange()">
             </div>
         </td></tr>
@@ -167,15 +167,21 @@
             &nbsp;
         </td></tr>
 
-            <tr><td>
-                <textarea id="textOut" cols="38" rows="6">
-                </textarea>
-            </td></tr>
+        <tr><td>
+            <textarea id="textOut" cols="38" rows="6">
+            </textarea>
+        </td></tr>
         
-            <tr><td>
-                <button onclick="copyTxt()"><small>클립보드에 복사
-                </small></button>
-            </td></tr>
+        <tr><td>
+            <small>
+            <p class="signature" id="lLength">
+            </p></small>
+        </td></tr>
+
+        <tr><td>
+            <button onclick="copyTxt()"><small>클립보드에 복사
+            </small></button>
+        </td></tr>
 
 		</table> 
     </form>
@@ -184,8 +190,9 @@
 
     <script>
            
-        const images = ['note1.png', 'note2.png', 'note3.png',
-            'note4.png', 'note5.png', 'note6.png'];
+        const images = ['cclover1.png', 'cclover2.png', 'cclover3.png',
+        'cclover4.png', 'cclover5.png', 'cclover6.png',
+        'cclover7.png', 'cclover8.png', 'cclover9.png'];
 
         function textReplace() {
             const textIn = document.getElementById('textIn').value;
@@ -196,6 +203,7 @@
 
             document.getElementById('textOut').innerHTML=textIn;       
             imageChange();
+            countLttrs(textIn);
         }
 
      
@@ -205,11 +213,16 @@
             return foo[randNumber];
         }
         
- 
-
         function imageChange() {
             var autoImage = document.getElementById("random_image");
             autoImage.src = choice(images);
+        }
+
+        function countLttrs(foo) {
+            const textOut = document.getElementById("textOut");
+            const lttrs = "퇴고 전 글자 수는 " + foo.length + "자";
+
+            document.getElementById('lLength').innerHTML=lttrs;
         }
 
         function copyTxt() {
