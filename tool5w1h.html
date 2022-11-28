@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>5W1H-Memopad December 2022</title>
+
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif;}
+        
+        table {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            border: 0;
+        }
+        td {
+            padding: 2px 15px;
+            border: 0;
+            vertical-align: middle;
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: white;
+          }
+      
+          button {
+            all: unset;
+            background-color: steelblue;
+            color: white;
+            padding: 2px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+      
+          h2 {
+            text-align: center;
+            color: #777777;
+          }
+      
+          .description {
+            text-align: center;
+          }
+      
+          .signature {
+            text-align: center;
+            color: #aaaaaa;
+          }
+           
+          #delay2 {
+            animation: fadein 2s;
+            -moz-animation: fadein 2s; /* Firefox */
+            -webkit-animation: fadein 2s; /* Safari and Chrome */
+            -o-animation: fadein 2s; /* Opera */
+        }
+        @keyframes fadein {
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-moz-keyframes fadein { /* Firefox */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity:1;
+            }
+        }
+        @-o-keyframes fadein { /* Opera */
+            from {
+                opacity:0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        #delay5 {
+      
+          animation: fadein 5s;
+          -moz-animation: fadein 5s; /* Firefox */
+          -webkit-animation: fadein 5s; /* Safari and Chrome */
+          -o-animation: fadein 5s; /* Opera */
+      }
+      @keyframes fadein {
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-moz-keyframes fadein { /* Firefox */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-webkit-keyframes fadein { /* Safari and Chrome */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-o-keyframes fadein { /* Opera */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+      
+        </style>
+    
+    
+</head>
+<body>
+
+    <h1> 육 하 원 칙   메 모 장 </h1>
+   
+    <p class="signature">
+    <small> 글이 막힐 땐 <b>육하원칙</b>
+    </small>
+    </p>
+
+
+  <form action="javascript:local();">
+    
+		<table>
+			<tr><td><label><input type="text" value="(토픽) " size="53" id="who"></label></td></tr>
+           
+            <tr><td><label><input type="text" value="(어떤 이가) " size="53" id="when"></label></td></tr>
+            
+            <tr><td><label><input type="text" value="(언제•어디서) " size="53" id="where"></label></td></tr>
+        
+            <tr><td><label><input type="text" value="(무엇을•어떻게) " size="53" id="what"></label></td></tr>
+
+            <tr><td><label><input type="text" value="(왜•동기는)" size="53" id="how"></label></td></tr>
+            
+            <tr><td><label><input type="text" value="(의미) " size="53" id="why"></label></tr>
+        
+            <tr>
+               <td><button><small>메모하고 클릭하면 아이디어가 하나씩 늘어납니다.</small></button></td> 
+            </tr>
+
+            <tr><td><div class="image-container" id = "delay5"> <img src = "peg0.png"  alt="아이콘">
+            </div></td></tr>
+
+            <tr><td><textarea id="output" cols="53" rows="4"></textarea></td></tr>
+
+            <tr><td><button onclick="copyTxt()"><small>클립보드에 복사하여 원하는 곳에 붙여넣으세요.</small></button></td></tr>
+		</table> 
+    </form>
+	
+
+
+    <script>
+
+        function local() {
+            var who = document.getElementById("who").value;
+            var when = document.getElementById("when").value;
+            var where = document.getElementById("where").value;
+            var what = document.getElementById("what").value;
+            var how = document.getElementById("how").value;
+            var why = document.getElementById("why").value;
+
+            var txt = who + " " + when + " " + where + " " +
+                    how + " " + what + " " + why;
+
+            var len = "   ((" + txt.length + "자))" +"\n";
+
+            document.getElementById("output").value = 
+                document.getElementById("output").value + txt+len;
+        }
+
+        function copyTxt() {
+            var obj = document.getElementById("output");
+
+            obj.focus();
+            obj.select();
+            obj.setSelectionRange(0,99999);
+
+            document.execCommand("copy");
+
+            alert("클립보드에 복사되었습니다!");
+        }
+
+
+    </script>
+</body>
+</html>

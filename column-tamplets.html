@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디어를 짜내는 틀</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    button {
+      all: unset;
+      background-color: black;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h2 {
+        text-align: center;
+        font: Arial, sans-serif;
+        color:black;
+      }
+
+    h4 {
+        text-align: center;
+        font: Arial, sans-serif;
+        color:gray;
+      }
+
+
+    a {
+      color: lightcoral ;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightpink ;
+    }
+
+    .signature {
+      text-align: center;
+      font: Arial, sans-serif;
+      color: #999;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+
+    #delay0 {
+
+        animation: fadein 10s;
+        -moz-animation: fadein 10s; /* Firefox */
+        -webkit-animation: fadein 10s; /* Safari and Chrome */
+        -o-animation: fadein 10s; /* Opera */
+    }
+
+    #delay1 {
+      animation: fadein 15s;
+      -moz-animation: fadein 15s; /* Firefox */
+      -webkit-animation: fadein 15s; /* Safari and Chrome */
+      -o-animation: fadein 15s; /* Opera */
+    }
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<br> <br>
+
+<div class="signature">
+    <small>김태권의 영감이 온다</small>
+</div>
+
+<h4>
+    영 감 을 &nbsp; 짜 내 는 &nbsp; 틀
+</h4>
+
+
+<div class="image-container" id = "delay0" onclick = "inspire()">
+    <img src = "storm7.png"  alt="아이콘" 
+     id="hint">
+   
+</div>
+
+<div class = "signature">
+<small>
+  <button onclick = "inspire()"> 눌 러 보 세 요 </button>
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "answers" id="delay1">
+  <h2>
+  <span id = "answer"> </span>
+  </h2>
+</div>
+
+</div>
+
+
+  
+
+<script>
+
+///////
+var type = 'typeA'
+
+///////
+
+var images = ['icon_villain01.png', 'icon_villain02.png', 'icon_villain03.png',
+'icon_villain04.png', 'icon_villain05.png', 'icon_villain06.png',
+'icon_villain07.png', 'icon_villain08.png', 'icon_villain09.png',
+'icon_villain10.png', 'icon_villain11.png', 'icon_villain12.png',
+'icon_villain13.png', 'icon_villain14.png', 'icon_villain15.png'];
+
+var villain = ['말레피센트', '에일리언', '드라큘라', '조커', '렉스 루터',
+    '할리퀸', '서쪽 마녀', '캣우먼', '고질라', '킹기도라', '프레데터',
+    '터미네이터', '프랑켄슈타인', '크루엘라'];
+
+var adverb = ['사실은', '알고 보니', '뜻밖에도', '의외로'];
+
+var act = ['지구를 구했', '외계인을 물리쳤', '생명의 은인이었',
+    '봉사활동을 다닌', '내 숙제를 대신해줬', '어릴 때 착했', 
+    '약한 사람을 돌본', '불의를 보면 못참는', '길고양이 밥을 준',
+    '아이를 잘 보살핀', '불편한 사람을 돕는', '남을 잘 챙긴',
+    '인명을 구조했', '나한테는 친절하', '꽃향기를 즐긴',
+    '아픈 동물을 치료했', '세계 멸망을 막았', '핵폭발을 막았',
+    '정의감이 넘친', '친구를 배신하지 않는', '따뜻한 마음을 가졌',
+    '건물 붕괴를 막았', '구세주의 운명을 타고났', '자선사업을 했'];
+
+var autoText = document.getElementById("answer");
+var autoImage = document.getElementById("random_image");
+
+function postObj(bar) {
+    var uniVal = bar.charCodeAt(bar.length -1);
+  
+    if ((uniVal -16) % 28) {
+      return "을"
+    }
+    else {
+      return "를"
+    }
+  } 
+
+function postSubj(bar) {
+  var uniVal = bar.charCodeAt(bar.length -1);
+
+    if ((uniVal -16) % 28) {
+      return "이"
+    }
+    else {
+      return "가"
+    }
+  } 
+
+function inspire() {
+  window.location.reload();
+}
+
+function typeAwrite(bazVillain, bazAdverb, bazAct) {
+    
+  var baz1 = choice(bazVillain);
+  var baz2 = postSubj(baz1)+" ";
+  var baz3 = choice(bazAdverb)+" ";
+  var baz4 = choice(bazAct)+"다더라.";
+
+  return baz1 + baz2 + baz3 + baz4;
+}
+
+function choice(foo) {
+  var randNumber = Math.floor(Math.random()*foo.length);
+
+  return foo[randNumber];
+
+}
+
+function proposalWrite(bazVillain, bazAdverb, bazAct) {
+  autoProposal.innerHTML = typeAwrite(bazVillain, bazAdverb, bazAct);
+}
+
+function imageChange(foobaz) {
+  autoImage.src = choice(foobaz);
+}
+
+
+proposalWrite(villain, adverb, act);
+typeAWrite(villain, adverb, act);
+imageChange(images);
+
+
+
+</script>
+</body>
+</html>
