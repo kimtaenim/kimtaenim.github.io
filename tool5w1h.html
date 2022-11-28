@@ -29,7 +29,7 @@
       
           button {
             all: unset;
-            background-color: steelblue;
+            background-color: black;
             color: white;
             padding: 2px 18px;
             border-radius: 6px;
@@ -156,7 +156,7 @@
 
             <tr><td><label><input type="text" value="(왜•결과는)" size="53" id="how"></label></td></tr>
             
-            <tr><td><label><input type="text" value="(그 의미는) " size="53" id="why"></label></tr>
+            <tr><td><label><input type="text" value="(의미•논평) " size="53" id="why"></label></tr>
         
             <tr>
                <td><button><small>메모하고 클릭하면 아이디어가 하나씩 늘어납니다.</small></button></td> 
@@ -184,12 +184,12 @@
             var why = document.getElementById("why").value;
 
             var txt = who + " " + when + " " + where + " " +
-                    how + " " + what + " " + why;
+                    what + " " + how + " " + why;
 
             var len = "   ((" + txt.length + "자))" +"\n";
 
             document.getElementById("output").value = 
-                document.getElementById("output").value + txt+len;
+                document.getElementById("output").value + txt + len;
         }
 
         function copyTxt() {
