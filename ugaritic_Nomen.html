@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ugaritic Nomen etc.</title>
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+
+    h1 {
+      text-align: center;
+      font: Arial, sans-serif;
+      background-color: white;
+    }
+
+    button {
+      all: unset;
+      background-color: #263644;
+      color: white;
+      padding: 2px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 1px 1px 8px #9fb8d2;
+    }
+
+    h2 {
+      font-family:  'Times New Roman', Times, serif;
+      text-align: center;
+      color: darkgoldenrod;
+    }
+
+    a {
+      color: cadetblue;
+    }
+
+    a:hover {
+      text-shadow: 2px 2px 5px lightskyblue;
+    }
+
+    .description {
+      text-align: center;
+      color: #555;
+    }
+
+    .signature {
+      text-align: center;
+      color: #aaaaaa;
+    }
+
+    .navigation {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    .image-container {
+      text-align: center;
+      height: 128px; 
+    }
+
+    .reading {
+      font-style: oblique;
+      text-align: center;
+    }
+
+    #vocalisation {
+      font:  italic bold Georgia, serif;
+    }
+
+    #delay1 {
+      animation: fadein 15s;
+      -moz-animation: fadein 15s; /* Firefox */
+      -webkit-animation: fadein 15s; /* Safari and Chrome */
+      -o-animation: fadein 15s; /* Opera */
+  }
+
+    #delay2 {
+
+      animation: fadein 20s;
+      -moz-animation: fadein 20s; /* Firefox */
+      -webkit-animation: fadein 20s; /* Safari and Chrome */
+      -o-animation: fadein 20s; /* Opera */
+  
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  @-o-keyframes fadein { /* Opera */
+      from {
+          opacity:0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+}
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+    }
+  @-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+  </style>
+
+</head>
+<body>
+
+<br> <br>
+
+<div class="signature">
+    <small> N O M E N etc. </small>
+</div>
+
+
+<h1> 
+    <span id = "letters"> </span>
+</h1>
+
+
+<br> 
+<div class="image-container" id = "delay1" onclick = "inspire()">
+    <img src = "u_rasau.png"  alt="아이콘" 
+     id="meaning">
+   
+</div>
+
+<br>
+
+<div class = "description">
+<small>
+  <button onclick = "inspire()"> N O M E N etc. </button> <br>
+  
+</small>
+</div>
+
+
+<br> <br>
+
+<div class = "reading" id="delay2">
+  <h2>
+  <span id = "vocalisation"> </span>
+  </h2>
+</div>
+
+</div>
+
+
+<div class="description" id = "delay2">
+    <small>
+    
+        <span id = "commentary"> </span>
+    </small>
+    </div>
+
+
+  
+
+<script>
+
+    function choice(foo) {
+      var randNumber = Math.floor(Math.random()*foo.length);
+
+      return foo[randNumber];
+
+    }
+
+    function inspire() {
+      window.location.reload();
+    }
+
+ 
+///////
+
+const words = [
+['g', 'ugu.png', '/gû/', '{q}'],
+['p', 'upu.png', '/pû/', '{q}'],
+['š', 'usu.png', '/šû/', '<*śû {q}'],
+['ad', 'uadu.png', '/ʾadu/', '{qal} (cp. Adonai)'],
+['yd', 'uyadu.png', '/yadu/', '{qal}'],
+['ab', 'uabu.png', '/ʾabu/', '{qal}'],
+['aḫ', 'uahu.png', '/ʾaḫu/', '<*ʾaḫawu {qal}'],
+['bn', 'ubinu.png', '/binu/', '{qil}'],
+['mt', 'umutu.png', '/mutu/', '{qul}'],
+['abn', 'uabnu.png', '/ʾabnu/', '{qatl}'],
+['arṣ', 'uarsu.png', '/ʾarṣu/', 'ar-ṣu {qatl}'],
+['ksp', 'ukaspu.png', '/kaspu/', 'ka-as-pu {qatl}'],
+['ikl', 'uiklu.png', '/ʾiklu/', '{qitl}'],
+['*rgl', 'uriglu.png', '/riglu/', 'ri-[i]g-lu {qitl}'],
+['šil', 'usilu.png','/šiʾlu/', '{qitl}'],
+['*tbn', 'utibnu.png', '/tibnu/', 'ti-ib-nu {qitl}'],
+['udn', 'uudnu.png', '/ʾudnu/', '<*ʾuḍnu {qutl}'],
+['urk', 'uurku.png', '/ʾurku/', '{qutl}'],
+['sin', 'usunu.png', '/suʾnu/', 'su-nu {qutl} (syllable-closing aleph)'],
+['riš', 'urasu.png', '/raʾšu/', '(syllable-closing aleph)'],
+['ṣin', 'usanu.png', '/ṣaʾnu/', '(syllable-closing aleph)'],
+['mišmn', 'umasmanu.png', '/maʾš(V)manu/', '(syllable-closing aleph)'],
+['šqd', 'utuqdu.png', '/ṯuqdu/', 'ṯu-uq-du {qutl}'],
+['dkr', 'u_dakaru.png', '/dakaru/', '<*ḍakaru {qatal}'],
+['ršʿ', 'u_rasau.png', '/rašaʿu/', '{qatal}'],
+['yrḫ', 'u_yarihu.png', '/yariḫu/', '{qatil}'],
+['šlm', 'u_salimu.png', '/šalimu/', '{qatil} (cp. Solomon, Absalom)'],
+['adr', 'u_aduru.png', '/ʾaduru/', '{qatul}'],
+['gdl', 'u_gadulu.png', '/gadulu/', '{qatul}'],
+['atn', 'uatanu.png', '/ʾatānu/', '{qatāl}'],
+['šal', 'usaalu.png', '/šaʾālu/', '{qatāl} (passive)'],
+['asr', 'uasiru.png', '/ʾasīru/', '{qatīl} (passive)'],
+['ymn', 'uyaminu.png', '/yamīnu/', '{qatīl}'],
+['šbʿ', 'usabuu.png', '/šabūʿu/', '{qatūl}'],
+['ṣpy', 'usapuyu.png', '/ṣapūyu/', '{qatūl} (passive)'],
+['ilh', 'uilahu.png','/ʾilāhu/', '{qitāl} (cp. il, El, Elohim, Allah)'],
+['il', 'uilu.png', '/ʾilu/', '{qil} (cp. ilh, El, Elohim, Allah)'],
+['ḥmr', 'uhimaru.png', '/ḥimāru/', '{qitāl}'],
+['ḫrṣ', 'uhurasu.png', '/ḫurāṣu/', 'ḫu-r[a-ṣu] {qutāl} (cp.ksp)'],
+['khn', 'ukahinu.png', '/kāhinu/', '{qātil} (doer) (cp. Heb. kōhen)'],
+['spr', 'usapiru.png', '/sāpiru/', '{qātil} (doer) (cp. Heb. sofer)'],
+['ḥrš', 'uharrasu.png', '/ḥarrāšu/', 'ḫa-ra-šu {qattāl}'],
+['knr', 'ukinnaru.png', '/kinnāru/', 'ki-na-rù {qittāl}'],
+//['l ksi!', 'ukussi.png', '/kussiʾ(i)/', 'vocative (ksu /kussiʾu/)'],
+//['arṣh', 'uarsah.png', '/ʾarṣah/', 'terminative (arṣ /ʾarṣu/)'],
+['klb (m. sg.)', 'ukalbusg.png', '/kalbu/, /kalbi/, /kalba/', 'declension of klb'],
+['klbt (f. sg.)', 'ukalbatusg.png', '/kalbatu/, /-i/, /-a/', 'declension of klbt'],
+['klb (m. du. abs.)', 'ukalbudual.png', '/kalbāmi/, /kalbêma/', 'declension of klb'],
+['klb (m. du. cs.)', 'ukalbudual.png', '/kalbā/, /kalbê/', 'declension of klb'],
+['klbt (f. du. abs.)', 'ukalbatudual.png', '/kalbatāmi/, /kalbatêma/', 'declension of klbt'],
+['klbt (f. du. cs.)', 'ukalbatudual.png', '/kalbatā/, /kalbatê/', 'declension of klbt'],
+['klb (m. pl. abs.)', 'ukalbupl.png', '/kalabūma/, /kalabīma/', 'declension of klb'],
+['klb (m. pl. cs.)', 'ukalbupl.png', '/kalabū/, /kalabī/', 'declension of klb'],
+['klbt (f. pl.)', 'ukalbatupl.png', '/kalabātu/, /kalabāti/', 'declension of klbt'],
+['aḥd', 'uahhadu.png', '/ʾaḥ(ḥ)ad-/', 'm.'],
+['aḥt', 'uahhadu.png', '/ʾaḥḥat-/', '</*aḥadat-/ f.'],
+['ṯn', 'utina.png', '/ṯinā, ṯinê/', 'm.'],
+['ṯt', 'utina.png', '/ṯittā, ṯittê/', 'f.'],
+['ǧzr aḥd', 'ugaziruahhadu.png', '/ǧāziru ʾaḥ(ḥ)adu/', 'aḥd is an adjective.'],
+['pǧt aḥt', 'upugatuahhattu.png', '/puǧatu ʾaḥḥatu/', 'aḥt is an adjective.'],
+['ṯt qštm', 'uqastema.png', '/ṯittā qaštêma/', 'qštm : oblique'],
+['ṯn qlʿm', 'uqilema.png', '/ṯinā qilʿêma/', 'qlʿm : oblique'],
+['mria', 'uox.png', '/marīʾa/', 'aleph & aleph'],
+['ṣbia', 'usunrise.png', '/ṣabīʾa/', 'aleph & aleph'],
+['yiḫd', 'ucatch.png', '/yaʾḫud-/', 'conjugation of √ʾḫd'],
+//['tbi', 'ugo.png', '/tabûʾ/', 'conjugation of √bwʾ'],
+//['yraun', 'ufeared.png', '/yarāʾunnV/', 'aleph & aleph'],
+//['aḫd', 'ucatch.png', '/ʾāḫid-/', '(√ʾḫd) Heb.ʾoḥez'],
+//['ibr', 'uox.png', '/ʾibbīr-/', '<*ʾabbīr (assimilation)'],
+['ank, an', 'umyself.png', '/ʾanāku/, /ʾanā/', 'pronoun'], 
+['at', 'uyou.png', '/ʾatta/, /ʾatti/', '<*ʾanta, *ʾanti'],
+['hw, hy', 'uperson.png', '/huwa/, /hiya/', 'third person sg.'],
+['aliy', 'ualiy.png', '/ʾalʾeyu/', 'aliy qrdm [ʾaqtVl]'], 
+['aliyn', 'ualiy.png', ' ', 'aliyn bʿl'],
+['mlak', 'uherald.png', '/malʾaku/', '[maqtal]'],
+['mʿbr', 'ucreek.png', '/maʿbaru/', '[maqtal]'],
+['mʿṣd', 'uaxe.png', '/maʿṣadu/', 'ma-ṣa-du [maqtal]'],
+['*admn', 'ured.png', '/ʾadmānu/', '-ān [qatlān]'],
+['*yrqn', 'uyellow.png', '/yarqānu', '-ān [qatlān]'],
+['gngn', 'uintestines.png', '/gVngVnu/', '[qVlqVl]'],
+['drdr', 'uinfinite.png', '/dârdâru/', '[qVlqVl]'],
+['kbkb', 'ustars.png', '/kabkabu/', '[qVlqVl]'],
+['ʿpʿp-', 'ueyes.png', '/ʿapʿapu/', '[qVlqVl] (du.)'],
+['ysmsm', 'ubeauty.png', '/yasamsVmu/', '[qataltVl]'],
+['ysmsmt', 'ubeauty.png', '/ /', '[qataltVl]'],
+['šbʾt rašm', 'u7heads.png', '/šabʾatu raʾšīma/', 'genespolar syntax'],
+['šbʿ bnm', 'u7heads.png', '/šabʿu binīma/', 'non-genespolar syntax'],
+['b, by', 'ub.png', '/bi/, /bī/', 'Preposition'],
+['l, ly', 'ul.png', '/li/, /lê/', 'Preposition'],
+['k', 'uk.png', '/ka/', 'Preposition'],
+['yd', 'uyada.png', '/yada/', 'Preposition'],
+['ʿm', 'uimma.png', '/ʿimma/', 'Preposition'],
+['bn', 'ubena.png', '/bêna/ < *bayna/u', 'Preposition'],
+['ʿd', 'uade.png', '/ʿadê/', 'Preposition'],
+['ʿl', 'uale.png', '/ʿalê/â/', 'Preposition'],
+['tḥt', 'utahta.png', '/taḥta', 'Preposition'],
+['qdm', 'uqudama.png', '/qudāma/', 'Preposition'],
+['pn', 'upan.png', '/panV/', 'Preposition'], 
+['bʿd', 'ubada.png', '/baʿda/', 'Preposition'],
+['aṯr', 'uatara.png', '/ʾaṯ(a)ra', 'Preposition'],
+['tk', 'utoka,png', '/tôkâ/', 'Preposition'],
+['qrb', 'uqirba.png', '/qirba/', 'Preposition'],
+['bd', 'ubadi.png', '/bâdi/ < *bi yadi', 'Preposition'],
+['b tk', 'ubitoki.png', '/bi tôki/', 'Preposition'],
+['b qrb', 'uqirba.png', '/bi qarbi/', 'Preposition'],
+['l p', 'ulipi.png', '/li pî/', 'Prepostion'],
+['l pn', 'ulipani.png', '/li panî/', 'Preposition'],
+['l pʿn', 'ulipane.png', '/li paʿnê/', 'Preposition'],
+['l ẓr', 'ulizari.png', '/li ẓâri/', 'Preposition'], 
+['l bl', 'ulibali.png', '/li balî/', 'Preposition']
+]
+
+var study = choice(words)
+document.getElementById('letters').innerHTML=study[0]
+document.getElementById('meaning').src=study[1]
+document.getElementById('vocalisation').innerHTML=study[2]
+document.getElementById('commentary').innerHTML=study[3]
+
+
+
+</script>
+</body>
+</html>
