@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cardNews0.01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Nanum Gothic', 'Noto Sans', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .control-panel {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            max-width: 100%;
+        }
+        .control-panel input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .control-panel label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        .control-panel .radio-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .control-panel .radio-group input {
+            margin-right: 5px;
+        }
+        .control-panel .radio-group label {
+            margin: 0 5px 0 0;
+        }
+        .control-panel button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        .control-panel button:hover {
+            background-color: #ddd;
+        }
+        #canvas-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 360px;
+            height: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #previewCanvas {
+            border-radius: 8px;
+        }
+        #fullCanvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>cardNews0.01</h1>
+    <div class="control-panel">
+        <div style="width: 100%;">
+            <input type="file" id="imageUpload" accept="image/*">
+        </div>
+        <label>Text:            (KimTae 2024) </label>
+        <input type="text" id="textInput">
+        <div class="radio-group">
+            <label>Text Color: </label>
+            <label><input type="radio" name="textColor" value="white" checked> White</label>
+            <label><input type="radio" name="textColor" value="black"> Black</label>
+        </div>
+        <div class="radio-group">
+            <label>Text Position: </label>
+            <label><input type="radio" name="textPosition" value="top"> Top</label>
+            <label><input type="radio" name="textPosition" value="center" checked> Center</label>
+            <label><input type="radio" name="textPosition" value="bottom"> Bottom</label>
+        </div>
+        <div class="radio-group">
+            <label>Text Alignment: </label>
+            <label><input type="radio" name="textAlign" value="left"> Left</label>
+            <label><input type="radio" name="textAlign" value="center" checked> Center</label>
+            <label><input type="radio" name="textAlign" value="right"> Right</label>
+        </div>
+        <div class="radio-group">
+            <label>Background Color: </label>
+            <label><input type="radio" name="bgColor" value="white" checked> White</label>
+            <label><input type="radio" name="bgColor" value="gray"> Gray</label>
+            <label><input type="radio" name="bgColor" value="black"> Black</label>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
+            <button onclick="renderCanvas()">Preview</button>
+            <button onclick="downloadImage()">Save</button>
+        </div>
+    </div>
+    <div id="canvas-container">
+        <canvas id="previewCanvas" width="360" height="360"></canvas>
+        <canvas id="fullCanvas" width="1080" height="1080"></canvas>
+    </div>
+
+    <script>
+        const previewCanvas = new fabric.Canvas('previewCanvas');
+        const fullCanvas = new fabric.Canvas('fullCanvas');
+        const defaultFontSize = 80;
+
+        const padding = {
+            horizontal: 60,
+            vertical: 30,
+            top: 40,
+            bottom: 40,
+            textOffset: 15
+        };
+
+        function loadImage(event, canvas, size, callback) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                fabric.Image.fromURL(e.target.result, function (img) {
+                    const imgRatio = img.width / img.height;
+                    const canvasRatio = size / size;
+                    
+                    let imgWidth, imgHeight;
+                    
+                    if (imgRatio > canvasRatio) {
+                        imgWidth = size;
+                        imgHeight = size / imgRatio;
+                    } else {
+                        imgWidth = size * imgRatio;
+                        imgHeight = size;
+                    }
+
+                    const bgColor = document.querySelector('input[name="bgColor"]:checked').value;
+                    canvas.clear();
+                    canvas.setBackgroundColor(bgColor, canvas.renderAll.bind(canvas));
+
+                    img.scaleToWidth(imgWidth);
+                    img.scaleToHeight(imgHeight);
+                    img.set({
+                        left: (size - imgWidth) / 2,
+                        top: (size - imgHeight) / 2
+                    });
+
+                    canvas.add(img);
+                    img.moveTo(0);
+                    if (callback) callback();
+                });
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function getTextOptions() {
+            return {
+                text: document.getElementById('textInput').value,
+                color: document.querySelector('input[name="textColor"]:checked').value,
+                position: document.querySelector('input[name="textPosition"]:checked').value,
+                align: document.querySelector('input[name="textAlign"]:checked').value,
+            };
+        }
+
+        function calculateFontSize(text, height, fontSize, canvasWidth) {
+            let newFontSize = fontSize;
+            const textSample = new fabric.Textbox(text, { fontSize: newFontSize, width: canvasWidth - (padding.horizontal * 2) });
+            while (textSample.height > height * (2 / 3)) {
+                newFontSize -= 2;
+                textSample.set({ fontSize: newFontSize });
+            }
+            return newFontSize;
+        }
+
+        function calculateTextBoxDimensions(text, fontSize, canvasWidth) {
+            const textSample = new fabric.Textbox(text, { fontSize, width: canvasWidth - (padding.horizontal * 2) });
+            return { width: canvasWidth - (padding.horizontal * 2), height: textSample.height + padding.vertical };
+        }
+
+        function addTextToCanvas(options, canvas, canvasSize) {
+            const fontSize = calculateFontSize(options.text, canvasSize, defaultFontSize, canvasSize);
+            const { width, height } = calculateTextBoxDimensions(options.text, fontSize, canvasSize);
+            const rectColor = options.color === 'white' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)';
+
+            const rect = new fabric.Rect({
+                width: width + padding.horizontal * 2,
+                height: height + padding.vertical,
+                fill: rectColor,
+            });
+            const text = new fabric.Textbox(options.text, {
+                fontSize,
+                fill: options.color,
+                textAlign: options.align,
+                width,
+                fontFamily: 'Malgun Gothic, Nanum Gothic, Noto Sans, sans-serif'
+            });
+
+            const topPosition = options.position === 'top' ? padding.top : options.position === 'center' ? (canvasSize - height - padding.vertical) / 2 : canvasSize - height - padding.bottom;
+            rect.set({ left: (canvasSize - (width + padding.horizontal * 2)) / 2, top: topPosition });
+            text.set({ left: (canvasSize - width) / 2, top: topPosition + padding.text
+                , textOffset });
+
+canvas.add(rect);
+canvas.add(text);
+}
+
+function renderCanvas() {
+fullCanvas.clear();
+loadImage({ target: { files: [document.getElementById('imageUpload').files[0]] } }, fullCanvas, 1080, () => {
+    addTextToCanvas(getTextOptions(), fullCanvas, 1080);
+    const dataURL = fullCanvas.toDataURL({ format: 'png' });
+    fabric.Image.fromURL(dataURL, function(img) {
+        img.scaleToWidth(360);
+        img.scaleToHeight(360);
+        previewCanvas.clear();
+        previewCanvas.add(img);
+        img.moveTo(0);
+    });
+});
+}
+
+function downloadImage() {
+const link = document.createElement('a');
+link.href = fullCanvas.toDataURL({ format: 'png' });
+link.download = 'cardnews.png';
+link.click();
+}
+
+document.getElementById('imageUpload').addEventListener('change', renderCanvas);
+</script>
+</body>
+</html>
