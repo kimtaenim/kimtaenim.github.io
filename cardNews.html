@@ -291,10 +291,25 @@
         }
 
         function downloadImage() {
+            const dataURL = fullCanvas.toDataURL({ format: 'png' });
             const link = document.createElement('a');
-            link.href = fullCanvas.toDataURL({ format: 'png' });
+            link.href = dataURL;
             link.download = 'cardnews.png';
-            link.click();
+
+            // 모바일 브라우저 지원을 위해 링크를 클릭하는 방식 대신에 직접 다운로드 처리
+            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
+                // 모바일에서는 새로운 창을 열어 이미지를 표시하고, 사용자가 직접 저장하게 유도
+                const newWindow = window.open();
+                if (newWindow) {
+                    newWindow.document.write('<img src="' + dataURL + '" />');
+                    newWindow.document.title = "Save Image";
+                } else {
+                    alert('Please allow popups for this website to download the image.');
+                }
+            } else {
+                // 데스크탑 브라우저에서는 기존 방식대로 처리
+                link.click();
+            }
         }
 
         document.getElementById('imageUpload').addEventListener('change', function(event) {
