@@ -116,8 +116,13 @@
             <label for="imageUpload" class="file-label">Choose File</label>
             <input type="file" id="imageUpload" accept="image/*">
         </div>
+
         <label>TEXT (KimTae 2024)</label>
         <input type="text" id="textInput" value="카드뉴스 만들어요.">
+ 
+        <label>Signature Text</label>
+        <input type="text" id="signatureText" value="Your Signature">
+ 
         <label>Font</label>
         <select id="fontSelect">
             <option value="'Malgun Gothic', sans-serif">맑은 고딕</option>
@@ -126,6 +131,7 @@
             <option value="'Pretendard', sans-serif">Pretendard</option>
             <option value="'Nanum Gothic', sans-serif">Nanum Gothic</option>
         </select>
+ 
         <table>
             <tr>
                 <td>
@@ -232,6 +238,13 @@
             };
         }
 
+        function getSignatureOptions() {
+            return {
+                text: document.getElementById('signatureText').value,
+                color: document.querySelector('input[name="textColor"]:checked').value
+            };
+        }
+
         function calculateFontSize(text, height, fontSize, canvasWidth) {
             let newFontSize = fontSize;
             const textSample = new fabric.Textbox(text, { fontSize: newFontSize, width: canvasWidth - (padding.horizontal * 2) });
@@ -275,10 +288,27 @@
             canvas.add(text);
         }
 
+        function addSignatureText(canvas, options) {
+            const fontSize = 40;  // 작은 글씨 크기 설정
+            const padding = 15;   // 여백 설정
+            const textObject = new fabric.Text(options.text, {
+                fontSize: fontSize,
+                fill: options.color,
+                originX: 'right',
+                originY: 'bottom'
+            });
+            textObject.set({
+                left: canvas.width - padding,
+                top: canvas.height - padding
+            });
+            canvas.add(textObject);
+        }
+
         function renderCanvas() {
             fullCanvas.clear();
             loadImage({ target: { files: [document.getElementById('imageUpload').files[0]] } }, fullCanvas, 1080, () => {
                 addTextToCanvas(getTextOptions(), fullCanvas, 1080);
+                addSignatureText(fullCanvas, getSignatureOptions());
                 const dataURL = fullCanvas.toDataURL({ format: 'png' });
                 fabric.Image.fromURL(dataURL, function(img) {
                     img.scaleToWidth(660);
