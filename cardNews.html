@@ -1,16 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>cardNews0.01</title>
+    <title>cardNews0.011</title>
+    <!-- 폰트 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=KoPub+Batang&family=KoPub+Dotum&family=Nanum+Gothic&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
-        @import url('https://cdn.rawgit.com/kattergil/NotoSerifKR-Web/76eb9ebf/stylesheet/NotoSerif-Web.css');
-        @import url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0');
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
         body {
-            font-family: 'Nanum Gothic', 'Noto Sans', sans-serif;
+            font-family: 'KoPub Batang', 'Malgun Gothic', 'Nanum Gothic', 'Noto Sans', serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -19,71 +17,62 @@
             align-items: center;
         }
         h1 {
-            font-size: 90px;
+            font-size: 36px;
             margin-top: 20px;
             color: #333;
         }
         .control-panel {
             background: #fff;
-            padding: 25px;
+            padding: 20px;
             margin-top: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 660px;
+            width: 360px;
             max-width: 100%;
         }
-        .control-panel input[type="file"] {
-            display: none;
-        }
-        .control-panel label.file-label {
-            display: inline-block;
-            padding: 14px 28px;
-            font-size: 32px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #6988a9;
-            border-radius: 12px;
-            cursor: pointer;
-            text-align: center;
+        .control-panel input[type="text"],
+        .control-panel select {
             width: 100%;
-            box-sizing: border-box;
-        }
-        .control-panel input[type="text"] {
-            width: 100%;
-            padding: 14px;
-            font-size: 32px;
-            margin: 14px 0;
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
         .control-panel label {
             display: block;
-            margin: 14px 0 7px;
-            font-size: 28px;
+            margin: 10px 0 5px;
+            font-size: 14px;
             color: #333;
         }
-        .control-panel select {
-            width: 100%;
-            padding: 14px;
-            font-size: 32px;
-            margin: 14px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .control-panel .radio-group {
+            margin-bottom: 10px;
         }
-        .control-panel table {
-            width: 100%;
-            margin-bottom: 14px;
+        .control-panel .radio-group label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
         }
-        .control-panel table td {
-            padding: 8px;
-            vertical-align: top;
+        .control-panel .radio-options {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .control-panel .radio-options label {
+            width: 33.33%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .control-panel .radio-options input {
+            margin-right: 5px;
         }
         .control-panel button {
-            padding: 14px 28px;
-            font-size: 32px;
+            padding: 10px 20px;
+            font-size: 16px;
             border: none;
             border-radius: 4px;
-            margin: 14px 7px;
+            margin: 10px 5px;
             cursor: pointer;
         }
         .control-panel button:hover {
@@ -94,8 +83,8 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             overflow: hidden;
-            width: 660px;
-            height: 660px;
+            width: 360px;
+            height: 360px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,89 +96,97 @@
             display: none;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 </head>
 <body>
-    <h1>cardNews0.01</h1>
+    <h1>cardNews0.011</h1>
     <div class="control-panel">
         <div style="width: 100%;">
-            <label for="imageUpload" class="file-label">Choose File</label>
             <input type="file" id="imageUpload" accept="image/*">
         </div>
+        <label>Text: (KimTae 2024)</label>
+        <input type="text" id="textInput">
+        
+        <!-- Your Signature 입력 필드 추가 -->
+        <label>Your Signature:</label>
+        <input type="text" id="signatureInput">
 
-        <label>TEXT (KimTae 2024)</label>
-        <input type="text" id="textInput" value="카드뉴스 만들어요.">
- 
-        <label>Signature Text</label>
-        <input type="text" id="signatureText" value="Your Signature">
- 
-        <label>Font</label>
-        <select id="fontSelect">
-            <option value="'Malgun Gothic', sans-serif">맑은 고딕</option>
-            <option value="'Noto Serif', serif">Noto Serif</option>
-            <option value="'KoPubWorld Batang', serif">KoPub</option>
-            <option value="'Pretendard', sans-serif">Pretendard</option>
+        <!-- 폰트 종류 선택 기능 수정: 드롭다운 메뉴로 변경 -->
+        <label>Font Type:</label>
+        <select id="fontTypeSelect">
+            <option value="'KoPub Batang', serif" selected>KoPub Batang</option>
+            <option value="'KoPub Dotum', sans-serif">KoPub Dotum</option>
             <option value="'Nanum Gothic', sans-serif">Nanum Gothic</option>
+            <option value="'Noto Sans', sans-serif">Noto Sans</option>
         </select>
- 
-        <table>
-            <tr>
-                <td>
-                    <div class="radio-group">
-                        <label>Text Color:</label>
-                        <label><input type="radio" name="textColor" value="white" checked> White</label>
-                        <label><input type="radio" name="textColor" value="black"> Black</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="radio-group">
-                        <label>Text Position:</label>
-                        <label><input type="radio" name="textPosition" value="top"> Top</label>
-                        <label><input type="radio" name="textPosition" value="center"> Center</label>
-                        <label><input type="radio" name="textPosition" value="bottom" checked> Bottom</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="radio-group">
-                        <label>Text Alignment:</label>
-                        <label><input type="radio" name="textAlign" value="left"> Left</label>
-                        <label><input type="radio" name="textAlign" value="center" checked> Center</label>
-                        <label><input type="radio" name="textAlign" value="right"> Right</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="radio-group">
-                        <label>Background Color:</label>
-                        <label><input type="radio" name="bgColor" value="white" checked> White</label>
-                        <label><input type="radio" name="bgColor" value="gray"> Gray</label>
-                        <label><input type="radio" name="bgColor" value="black"> Black</label>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div style="width: 100%; display: flex; justify-content: center; margin-top: 14px;">
+
+        <div class="radio-group">
+            <label>Text Color:</label>
+            <div class="radio-options">
+                <label><input type="radio" name="textColor" value="white" checked> White</label>
+                <label><input type="radio" name="textColor" value="black"> Black</label>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <label>Text Position:</label>
+            <div class="radio-options">
+                <label><input type="radio" name="textPosition" value="top"> Top</label>
+                <label><input type="radio" name="textPosition" value="center" checked> Center</label>
+                <label><input type="radio" name="textPosition" value="bottom"> Bottom</label>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <label>Text Alignment:</label>
+            <div class="radio-options">
+                <label><input type="radio" name="textAlign" value="left" checked> Left</label>
+                <label><input type="radio" name="textAlign" value="center"> Center</label>
+                <label><input type="radio" name="textAlign" value="right"> Right</label>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <label>Font Size:</label>
+            <div class="radio-options">
+                <label><input type="radio" name="fontSize" value="80"> Large</label>
+                <label><input type="radio" name="fontSize" value="60" checked> Middle</label>
+                <label><input type="radio" name="fontSize" value="45"> Small</label>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <label>Background Color:</label>
+            <div class="radio-options">
+                <label><input type="radio" name="bgColor" value="white" checked> White</label>
+                <label><input type="radio" name="bgColor" value="gray"> Gray</label>
+                <label><input type="radio" name="bgColor" value="black"> Black</label>
+            </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
             <button onclick="renderCanvas()">Preview</button>
             <button onclick="downloadImage()">Save</button>
         </div>
     </div>
     <div id="canvas-container">
-        <canvas id="previewCanvas" width="660" height="660"></canvas>
+        <canvas id="previewCanvas" width="360" height="360"></canvas>
         <canvas id="fullCanvas" width="1080" height="1080"></canvas>
     </div>
 
     <script>
         const previewCanvas = new fabric.Canvas('previewCanvas');
         const fullCanvas = new fabric.Canvas('fullCanvas');
-        const defaultFontSize = 85;
 
         const padding = {
-            horizontal: 80,
-            vertical: 45,
-            top: 70,
-            bottom: 50,
-            textOffset: 30
+            horizontal: 60,
+            vertical: 30,
+            top: 40,
+            bottom: 40,
+            textOffset: 15,
+        };
+
+        const signaturePadding = {
+            bottom: 20, // Signature의 하단 패딩
         };
 
         function loadImage(event, canvas, size, callback) {
@@ -231,17 +228,12 @@
         function getTextOptions() {
             return {
                 text: document.getElementById('textInput').value,
+                signature: document.getElementById('signatureInput').value,
+                fontType: document.getElementById('fontTypeSelect').value,
                 color: document.querySelector('input[name="textColor"]:checked').value,
                 position: document.querySelector('input[name="textPosition"]:checked').value,
                 align: document.querySelector('input[name="textAlign"]:checked').value,
-                font: document.getElementById('fontSelect').value,
-            };
-        }
-
-        function getSignatureOptions() {
-            return {
-                text: document.getElementById('signatureText').value,
-                color: document.querySelector('input[name="textColor"]:checked').value
+                size: parseInt(document.querySelector('input[name="fontSize"]:checked').value),
             };
         }
 
@@ -261,7 +253,7 @@
         }
 
         function addTextToCanvas(options, canvas, canvasSize) {
-            const fontSize = calculateFontSize(options.text, canvasSize, defaultFontSize, canvasSize);
+            const fontSize = calculateFontSize(options.text, canvasSize, options.size, canvasSize);
             const { width, height } = calculateTextBoxDimensions(options.text, fontSize, canvasSize);
             const rectColor = options.color === 'white' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)';
 
@@ -275,44 +267,46 @@
                 fill: options.color,
                 textAlign: options.align,
                 width,
-                fontFamily: options.font
+                fontFamily: options.fontType
             });
 
-            console.log("Selected Font:", options.font);  // 폰트가 올바르게 전달되는지 확인
-
-            const topPosition = options.position === 'top' ? padding.top : options.position === 'center' ? (canvasSize - height - padding.vertical) / 2 : canvasSize - height - padding.bottom;
+            // 메인 텍스트의 하단 위치를 더 위로 올림
+            const textBottomPadding = padding.bottom + 50; // 50 픽셀 추가
+            const topPosition = options.position === 'top' ? padding.top : options.position === 'center' ? (canvasSize - height - padding.vertical) / 2 : canvasSize - height - textBottomPadding;
             rect.set({ left: (canvasSize - (width + padding.horizontal * 2)) / 2, top: topPosition });
             text.set({ left: (canvasSize - width) / 2, top: topPosition + padding.textOffset });
 
             canvas.add(rect);
             canvas.add(text);
-        }
 
-        function addSignatureText(canvas, options) {
-            const fontSize = 40;  // 작은 글씨 크기 설정
-            const padding = 15;   // 여백 설정
-            const textObject = new fabric.Text(options.text, {
-                fontSize: fontSize,
-                fill: options.color,
-                originX: 'right',
-                originY: 'bottom'
-            });
-            textObject.set({
-                left: canvas.width - padding,
-                top: canvas.height - padding
-            });
-            canvas.add(textObject);
+            // Your Signature 추가
+            if (options.signature) {
+                const signatureFontSize = 30; // 글씨 크기를 30으로 조정
+                const signatureText = new fabric.Text(options.signature, {
+                    fontSize: signatureFontSize,
+                    fill: options.color,
+                    textAlign: 'right',
+                    fontFamily: 'Noto Sans, sans-serif' // 산세리프 글꼴
+                });
+
+                // Signature를 더 아래로 내림
+                signatureText.set({
+                    left: canvasSize - padding.horizontal - signatureText.width,
+                    top: canvasSize - signaturePadding.bottom - signatureText.height,
+                });
+
+                canvas.add(signatureText);
+            }
         }
 
         function renderCanvas() {
             fullCanvas.clear();
             loadImage({ target: { files: [document.getElementById('imageUpload').files[0]] } }, fullCanvas, 1080, () => {
                 addTextToCanvas(getTextOptions(), fullCanvas, 1080);
-                addSignatureText(fullCanvas, getSignatureOptions());
                 const dataURL = fullCanvas.toDataURL({ format: 'png' });
                 fabric.Image.fromURL(dataURL, function(img) {
-                    img.scaleToWidth(660);
-                    img.scaleToHeight(660);
+                    img.scaleToWidth(360);
+                    img.scaleToHeight(360);
                     previewCanvas.clear();
                     previewCanvas.add(img);
                     img.moveTo(0);
@@ -321,32 +315,13 @@
         }
 
         function downloadImage() {
-            const dataURL = fullCanvas.toDataURL({ format: 'png' });
             const link = document.createElement('a');
-            link.href = dataURL;
+            link.href = fullCanvas.toDataURL({ format: 'png' });
             link.download = 'cardnews.png';
-
-            // 모바일 브라우저 지원을 위해 링크를 클릭하는 방식 대신에 직접 다운로드 처리
-            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-                // 모바일에서는 새로운 창을 열어 이미지를 표시하고, 사용자가 직접 저장하게 유도
-                const newWindow = window.open();
-                if (newWindow) {
-                    newWindow.document.write('<img src="' + dataURL + '" />');
-                    newWindow.document.title = "Save Image";
-                } else {
-                    alert('Please allow popups for this website to download the image.');
-                }
-            } else {
-                // 데스크탑 브라우저에서는 기존 방식대로 처리
-                link.click();
-            }
+            link.click();
         }
 
-        document.getElementById('imageUpload').addEventListener('change', function(event) {
-            loadImage(event, previewCanvas, 660, () => {
-                addTextToCanvas(getTextOptions(), previewCanvas, 660);
-            });
-        });
+        document.getElementById('imageUpload').addEventListener('change', renderCanvas);
     </script>
 </body>
 </html>
